@@ -50,7 +50,7 @@ public class UsuarioController {
 	@PutMapping("/actualizarusuarios")
 	public void actualizarUsuario(UsuarioVO user) {
 		UsuarioDAO Dao = new UsuarioDAO();
-		Dao.registrarUsuario(user);
+		Dao.actualizarUsuario(user);
 	}
 	
 	
