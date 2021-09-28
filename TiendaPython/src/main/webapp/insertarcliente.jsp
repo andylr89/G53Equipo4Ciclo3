@@ -112,8 +112,8 @@
 			</form>
 
 			<button type="button" class="btn btn-success" onclick="enviar()">
-				<i class="fas fa-check"></i> Insertar nuevo usuario
-			</button>
+				<i class="fas fa-check"></i> Insertar nuevo Cliente
+			</button><br>
 
 			<h1>
 				<i class="fas fa-cogs"></i> Operaciones
@@ -156,8 +156,8 @@
 	</nav>
 	<script>
 		function enviar() {
-			var x = document.getElementById("cedula_cliente").value;
-			var y = document.getElementById("nombre_cliente").value;
+			var x = document.getElementById("nombre_cliente").value;
+			var y = document.getElementById("cedula_cliente").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
 			req.open('GET', 'http://localhost:8080/listarclientes', false);
@@ -170,7 +170,7 @@
 			for (i = 0; i < clientes.length; i++) {
 				console.log(clientes[i].cedula_cliente);
 				console.log(clientes[i].nombre_cliente);
-				if (clientes[i].cedula_.cliente === x) {
+				if (clientes[i].cedula_cliente === x) {
 					console.log(clientes[i].cedula_cliente + " " + x);
 					coincidencia = true
 					break;
