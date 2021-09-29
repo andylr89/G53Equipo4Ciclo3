@@ -33,8 +33,9 @@
 	<!-- Navbar-->
 	<nav class="navbar navbar-dark bg-primary">
 		<div class="container-fluid">
-			<a class="navbar-brand links" href="index.html">
-			<i class="fas fa-shopping-cart"></i> Tienda Python </a>
+			<a class="navbar-brand links" href="index.html"> <i
+				class="fas fa-shopping-cart"></i> Tienda Python
+			</a>
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="index.html">Home</a>
 				</li>
@@ -43,34 +44,33 @@
 	</nav>
 
 
-<!-- 	<section class="form-login"> -->
-<!-- 	<div class="position-absolute top-50 start-50 translate-middle login"> -->
-<!-- 	<h5><i class="fas fa-sign-in-alt"></i> Bienvenido </h5> -->
-<!-- 	<input class= "controls" type= "text" name= "Usuario" value= "" placeholder="Usuario"><br> -->
-<!-- 	<input class= "controls" type= "password" name= "Password" value= "" placeholder = "Contraseña"><br> -->
-<!-- 	<input class= "buttons" type= "submit" name= "" value= "Ingresar"> -->
-<!-- 	<input class = "buttons" type= "submit" name= "" value = "Registrarse"><br> -->
-<!-- 	<p><a href="#">¿Olvidaste tu Contraseña?</a></p> -->
-<!-- 	</div> -->
-<!-- 	</section> -->
+	<!-- 	<section class="form-login"> -->
+	<!-- 	<div class="position-absolute top-50 start-50 translate-middle login"> -->
+	<!-- 	<h5><i class="fas fa-sign-in-alt"></i> Bienvenido </h5> -->
+	<!-- 	<input class= "controls" type= "text" name= "Usuario" value= "" placeholder="Usuario"><br> -->
+	<!-- 	<input class= "controls" type= "password" name= "Password" value= "" placeholder = "Contraseña"><br> -->
+	<!-- 	<input class= "buttons" type= "submit" name= "" value= "Ingresar"> -->
+	<!-- 	<input class = "buttons" type= "submit" name= "" value = "Registrarse"><br> -->
+	<!-- 	<p><a href="#">¿Olvidaste tu Contraseña?</a></p> -->
+	<!-- 	</div> -->
+	<!-- 	</section> -->
 
 
-		<center>
+	<center>
 		<h1>
-			<br>
-			<br> Bienvenido
+			<br> <br> Bienvenido 
 		</h1>
 	</center>
 
-<!-- 	Contenedor de los botones y texto -->
-	<div class="container">
+	<!-- 	Contenedor de los botones y texto -->
+	<div class="container-fluid">
 		<div class="position-absolute top-50 start-50 translate-middle login">
-			<div class="col-sm-8 main-section">
+			<div class="row justify-content-md-center">
 				<div class="modal-content">
-					<div class="col-12 user-img">
-						<img src="avatar.png" width="70">
+					<div class="col-12 user-img text-center mt-2">
+						<img src="avatar.png" width="60">
 					</div>
-					<form class="col-12">
+					<form class="col-12 mt-2">
 						<div class="form-group" id="user-group">
 							<input id="inputuser" type="text" class="form-control"
 								placeholder="Usuario">
@@ -91,7 +91,7 @@
 								role="alert">Usuario o contraseña incorrecta!</div>
 						</div>
 					</form>
-					<div class="col-12 forgot">
+					<div class="col-12 forgot text-center mt-1">
 						<a href="#">Recordar contraseña</a>
 
 					</div>

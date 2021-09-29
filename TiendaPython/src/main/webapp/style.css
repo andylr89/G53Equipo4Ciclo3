@@ -1,0 +1,26 @@
+body{
+  background-image: url('fondo_tienda.png');
+  background-color: #cccccc;
+  height:680px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  
+}
+
+h1{color:rgba(95, 151, 236, 0.76);
+ 
+}
+.main-section{
+    margin:0 auto;
+    margin-top:5%;
+    padding: 0;
+}
+
+.modal-content{
+    background-color: #9fc9f7;
+    opacity: .75;
+    padding: 0 20px;
+    box-shadow: 0px 0px 3px #8bc3f8;
+}
