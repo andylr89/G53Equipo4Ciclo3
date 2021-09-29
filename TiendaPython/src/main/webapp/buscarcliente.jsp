@@ -37,7 +37,7 @@
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand links" href="index.html"><i
-				class="fas fa-python"></i>Tienda Python</a>
+				class="fas fa-shopping-cart"></i> Tienda Python </a>
 		</div>
 	</nav>
 

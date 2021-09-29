@@ -66,7 +66,7 @@
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand links" href="index.html"><i
-				class="fas fa-python"></i>Tienda Python</a>
+				class="fas fa-shopping-cart"></i> Tienda Python </a>
 		</div>
 	</nav>
 
@@ -93,7 +93,7 @@
 	
 	<div style="padding-left: 5px;">
 	
-		<h1><i class="fas fa-list-ol"></i> Tabla de clientes</h1>
+		<h2><i class="fas fa-th-list"></i> Tabla de clientes </h2>
 			<div class="container">
 				<div class="row">
 					<!--  Aqui es donde se autogenera la tabla basado en el script -->
@@ -104,7 +104,7 @@
 				</div>
 			</div>
 	
-		<h1><i class="fas fa-cogs"></i> Operaciones</h1>
+		<h2><i class="fab fa-elementor"></i> Operaciones </h2>
 			<div class="container">
 				<div class="row">
 					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarcliente.jsp'">

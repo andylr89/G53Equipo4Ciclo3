@@ -9,9 +9,6 @@ body{
   
 }
 
-h1{color:rgba(95, 151, 236, 0.76);
- 
-}
 .main-section{
     margin:0 auto;
     margin-top:5%;
@@ -23,4 +20,12 @@ h1{color:rgba(95, 151, 236, 0.76);
     opacity: .75;
     padding: 0 20px;
     box-shadow: 0px 0px 3px #8bc3f8;
+}
+
+h1{color:rgba(95, 151, 236, 0.76);
+ 
+}
+
+h2 {
+	color: black;
 }

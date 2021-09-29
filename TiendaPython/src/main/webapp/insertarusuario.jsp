@@ -36,15 +36,15 @@
 	<!-- Navbar-->
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
-			<a class="navbar-brand links" href="index.html"><i
-				class="fas fa-python"></i>Tienda Python</a>
+			<a class="navbar-brand links" href="index.html">
+			<i class="fas fa-shopping-cart"></i> Tienda Python </a>
 		</div>
 	</nav>
 
 	<!-- Navbar modulos-->
 	<nav class="navbar navbar-dark bg-primary">
 		<div class="container">
-			<a class="navbar-brand links" href="listarusuarios.jsp"> <i
+			<a class="navbar-brand links" href="listausuarios.jsp"> <i
 				class="fas fa-users"></i> Usuarios
 			</a> <a class="navbar-brand links" href="listaclientes.jsp"> <i
 				class="fas fa-address-book"></i> Clientes
