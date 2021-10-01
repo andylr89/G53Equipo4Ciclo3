@@ -67,7 +67,7 @@ public class ProveedorDAO {
 		try {
 			// prepare la sentencia en la base de datos
 			PreparedStatement consulta = conex.getConnection()
-					.prepareStatement("SELECT * FROM proveedores where nombre_proveedor = ? ");
+					.prepareStatement("SELECT * FROM proveedores where nit_proveedor = ? ");
 
 			// se cambia el comodin ? por el dato que ha llegado en el parametro de la
 			// funcion
@@ -163,7 +163,7 @@ public class ProveedorDAO {
 		return listaproveedores;
 	}
  /*aca voy */
-	public void eliminarUsuario(Integer cedula_usuario) {
+	public void eliminarProveedor(Integer nit_proveedor) {
 
 		// instancia de la conexion
 		Conexion conex = new Conexion();
@@ -173,7 +173,7 @@ public class ProveedorDAO {
 			Statement consulta = conex.getConnection().createStatement();
 
 			// preparando sentencia a realizar
-			String sentencia = "delete from usuarios where cedula_usuario=" + cedula_usuario + ";";
+			String sentencia = "delete from proveedores where nit_proveedor=" + nit_proveedor + ";";
 
 			// impresion de verificación
 			System.out.println("Registrado " + sentencia);
@@ -188,20 +188,20 @@ public class ProveedorDAO {
 		} catch (SQLException e) {
 			// si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo eliminar el usuario");
+			System.out.println("No se pudo eliminar el proveedor");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
 			// si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo eliminar el usuario");
+			System.out.println("No se pudo eliminar el proveedor");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}
 
 	}
 
-	public void actualizarUsuario(UsuarioVO user) {
+	public void actualizarProveedor(ProveedorVO proveedor) {
 
 		// instancia de conexion
 		Conexion conex = new Conexion();
@@ -211,7 +211,7 @@ public class ProveedorDAO {
 			Statement estatuto = conex.getConnection().createStatement();
 
 			// String con la sentencia a ejecutar
-			String sentencia = "UPDATE usuarios " + "SET email_usuario = '" + user.getEmail_usuario() + "',"
+			String sentencia = "UPDATE proveedores " + "SET email_usuario = '" + user.getEmail_usuario() + "',"
 					+ "nombre_usuario = '" + user.getNombre_usuario() + "'," + "password = '" + user.getPassword()
 					+ "'," + "usuario = '" + user.getUsuario() + "' " + "WHERE cedula_usuario = "
 					+ user.getCedula_usuario() + ";";
