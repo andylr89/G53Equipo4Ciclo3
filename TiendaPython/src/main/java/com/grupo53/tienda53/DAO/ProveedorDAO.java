@@ -162,7 +162,7 @@ public class ProveedorDAO {
 
 		return listaproveedores;
 	}
- /*aca voy */
+
 	public void eliminarProveedor(Integer nit_proveedor) {
 
 		// instancia de la conexion
@@ -211,10 +211,10 @@ public class ProveedorDAO {
 			Statement estatuto = conex.getConnection().createStatement();
 
 			// String con la sentencia a ejecutar
-			String sentencia = "UPDATE proveedores " + "SET email_usuario = '" + user.getEmail_usuario() + "',"
-					+ "nombre_usuario = '" + user.getNombre_usuario() + "'," + "password = '" + user.getPassword()
-					+ "'," + "usuario = '" + user.getUsuario() + "' " + "WHERE cedula_usuario = "
-					+ user.getCedula_usuario() + ";";
+			String sentencia = "UPDATE proveedores " + "SET ciudad_proveedor = '" + proveedor.getCiudad_proveedor() + "',"
+					+ "direccion_proveedor = '" + proveedor.getDireccion_proveedor() + "'," + "nombre_proveedor = '" + proveedor.getNombre_proveedor()
+					+ "'," + "telefono_proveedor = '" + proveedor.getTelefono_proveedor() + "' " + "WHERE nit_proveedor = "
+					+ proveedor.getNit_proveedor() + ";";
 
 			// ejecuta la sentencia
 			estatuto.executeUpdate(sentencia);
@@ -229,13 +229,13 @@ public class ProveedorDAO {
 		} catch (SQLException e) {
 			// si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo actualizar  el usuario");
+			System.out.println("No se pudo actualizar  el proveedor");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
 			// si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo eliminar el usuario");
+			System.out.println("No se pudo eliminar el proveedor");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}
