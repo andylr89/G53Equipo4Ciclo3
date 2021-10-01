@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class ProveedorVO implements Serializable {
 	
-	private static final long SerialVersion=1L;
+	private static final long serialVersionUID = 1L;
 	
 	private Integer nit_proveedor;
 	private String ciudad_proveedor;

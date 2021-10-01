@@ -252,5 +252,44 @@ public class ProductoDAO {
 		}
 
 	}
+	
+	
+	public void eliminarTodoProducto() {
+		
+		//instancia de la conexion
+		Conexion conex = new Conexion();
+		
+		try {
+			//sentencia inicializada
+			Statement consulta = conex.getConnection().createStatement();
+			
+			//preparando sentencia a realizar
+			String sentencia = "delete from productos;";
+			
+			//impresion de verificacion
+			System.out.println("Registrado " + sentencia);
+			
+			//ejecutando la sentencia en la base de datos
+			consulta.execute(sentencia);
+			
+			//cerrando sentencia y conexion
+			consulta.close();
+			conex.desconectar();
+		} catch (SQLException e) {
+			//si hay un error en el sql mostrarlo
+			System.out.println("-----------ERROR-----------");
+			System.out.println("No se pudieron eliminar todos los productos");
+			System.out.println(e.getMessage());
+			System.out.println(e.getErrorCode());
+		} catch (Exception e) {
+			//si hay cualquier otro error mostrarlo
+			System.out.println("-----------ERROR-----------");
+			System.out.println("No se pudieron eliminar todos los productos");
+			System.out.println(e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		}
+		
+	}
+	
 
 }

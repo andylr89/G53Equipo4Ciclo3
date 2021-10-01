@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class ProductoVO implements Serializable {
 	
-	private static final long SerialVersion=1L;
+	private static final long serialVersionUID = 1L;
 	
 	private Integer codigo_producto;
 	private Double iva_compra;
