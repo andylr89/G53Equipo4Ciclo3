@@ -56,7 +56,7 @@ public class ProveedorDAO {
 	 * @param documento
 	 * @return
 	 */
-	public ArrayList<ProveedorVO> ProveedorVO(String proveedor) {
+	public ArrayList<ProveedorVO> consultarProveedor(String proveedor) {
 
 		// lista que contendra el o los usuarios obtenidos
 		ArrayList<ProveedorVO> listaproveedores = new ArrayList<ProveedorVO>();
