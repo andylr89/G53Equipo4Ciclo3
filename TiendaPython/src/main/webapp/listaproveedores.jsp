@@ -10,7 +10,7 @@
 <!-- Tamaño de la pantalla -->
 <meta name="viewport" content="width=device-width">
 <!-- titulo de la pestaña -->
-<title>Lista de clientes</title>
+<title>Lista de Proveedores</title>
 <!-- bootstrap-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -29,32 +29,32 @@
 
 
 <script>
-	var baseurl = "http://localhost:8080/listarclientes";
-	function loadclientes() {
+	var baseurl = "http://localhost:8080/listarproveedores";
+	function loadproveedores() {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.open("GET", baseurl, true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-				var clientes = JSON.parse(xmlhttp.responseText);
-				var tbltop = "<table class='table table-dark table-striped'><tr><th>Cedula</th><th>Direccion</th><th>Email</th><th>Nombre</th><th>Telefono</th></tr>";
+				var proveedores = JSON.parse(xmlhttp.responseText);
+				var tbltop = "<table class='table table-dark table-striped'><tr><th>NIT</th><th>Ciudad</th><th>Direccion</th><th>Nombre_Proveedor</th><th>Telefono</th></tr>";
 				var main = "";
-				for (i = 0; i < clientes.length; i++) {
-					main += "<tr><td>" + clientes[i].cedula_cliente
-							+ "</td><td>" + clientes[i].direccion_cliente
-							+ "</td><td>" + clientes[i].email_cliente
-							+ "</td><td>" + clientes[i].nombre_cliente
-              				+ "</td><td>" + clientes[i].telefono_cliente
+				for (i = 0; i < proveedores.length; i++) {
+					main += "<tr><td>" + proveedores[i].nit_proveedor
+							+ "</td><td>" + proveedores[i].ciudad_proveedor
+							+ "</td><td>" + proveedores[i].direccion_proveedor
+							+ "</td><td>" + proveedores[i].nombre_proveedor
+              				+ "</td><td>" + proveedores[i].telefono_proveedor
               				+ "</td></tr>";
 				}
 				var tblbottom = "</table>";
 				var tbl = tbltop + main + tblbottom;
-				document.getElementById("clientesinfo").innerHTML = tbl;
+				document.getElementById("proveedoresinfo").innerHTML = tbl;
 			}
 		};
 		xmlhttp.send();
 	}
 	window.onload = function() {
-		loadclientes();
+		loadproveedores();
 	}
 </script>
 
@@ -93,7 +93,7 @@
 	
 	<div style="padding-left: 5px;">
 	
-		<h2><i class="fas fa-th-list"></i> Tabla de clientes </h2>
+		<h2><i class="fas fa-th-list"></i> Tabla de Proveedores </h2>
 			<div class="container">
 				<div class="row">
 					<!--  Aqui es donde se autogenera la tabla basado en el script -->
@@ -107,16 +107,16 @@
 		<h2><i class="fab fa-elementor"></i> Operaciones </h2>
 			<div class="container">
 				<div class="row">
-					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarcliente.jsp'">
-					<i class="fas fa-plus-circle"></i> Agregar cliente</button>
+					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarproveedor.jsp'">
+					<i class="fas fa-plus-circle"></i> Agregar Proveedor</button>
 					<button type="button" class="btn btn-danger">
-					<i class="fas fa-trash"></i> Eliminar cliente</button>
+					<i class="fas fa-trash"></i> Eliminar Proveedor</button>
 					<button type="button" class="btn btn-warning">
-					<i class="fas fa-pen-alt"></i> Actualizar cliente</button>
+					<i class="fas fa-pen-alt"></i> Actualizar Proveedor</button>
 					<button type="button" class="btn btn-primary">
-					<i class="fas fa-search"></i> Buscar un cliente</button>
+					<i class="fas fa-search"></i> Buscar un Proveedor</button>
 					<button type="button" class="btn btn-primary">
-					<i class="fas fa-search"></i> Listar todos los clientes</button>
+					<i class="fas fa-search"></i> Listar todos los Proveedores</button>
 				</div>
 			</div>
 	</div>
@@ -126,8 +126,7 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado y programado por Grupo 4 <i
-					class="fas fa-code-branch"></i></a>
+					 Grupo 4 <i class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
 	</nav>
