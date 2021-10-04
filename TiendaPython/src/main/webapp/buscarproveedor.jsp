@@ -10,7 +10,7 @@
 <!-- Tamaño de la pantalla -->
 <meta name="viewport" content="width=device-width">
 <!-- titulo de la pestaña -->
-<title>Buscar Cliente</title>
+<title>Buscar Proveedor</title>
 <!-- bootstrap-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -48,7 +48,7 @@
 				class="fas fa-users"></i> Usuarios
 			</a> <a class="navbar-brand links" href="listaclientes.jsp"> <i
 				class="fas fa-address-book"></i> Clientes
-			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
+			</a> <a class="navbar-brand links" href="listaproveedor.jsp"> <i
 				class="fas fa-truck"></i> Proveedores
 			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
 				class="fas fa-apple-alt"></i> Productos
@@ -62,61 +62,61 @@
 
 	<div style="padding-left: 5px">
 		<h1>
-			<i class="fas fa-search"></i> Buscar un Cliente
+			<i class="fas fa-search"></i> Buscar un Proveedor
 		</h1>
 		<div class="container">
 
 
 			<div id="error" class="alert alert-danger visually-hidden"
-				role="alert">Error al buscar el cliente, el cliente no existe</div>
+				role="alert">Error al buscar el proveedor, el proveedor no existe</div>
 
 			<div id="correcto" class="alert alert-success visually-hidden"
-				role="alert">Cliente encontrado con exito</div>
+				role="alert">Proveedo encontrado con exito</div>
 
 			<form id="form1">
 			
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon4">Cliente a buscar</span> <input
+					<span class="input-group-text" id="basic-addon4">Proveedor a buscar</span> <input
 						type="text" class="form-control"
-						placeholder="Inserte cedula aqui..."
+						placeholder="Inserte NIT aqui..."
 						aria-describedby="basic-addon4" required id="idsearch" >
 				</div>
 				<br>
 				<br>
 				<br>
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Cedula</span> <input
+					<span class="input-group-text" id="basic-addon1">NIT</span> <input
 						type="text" class="form-control"
-						aria-describedby="basic-addon1" required id="cedula_cliente" disabled="disabled">
+						aria-describedby="basic-addon1" required id="nit_proveedor" disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon2">Email</span> <input
+					<span class="input-group-text" id="basic-addon2">Ciudad</span> <input
 						type="text" class="form-control"
-						aria-describedby="basic-addon2" required id="email_cliente" disabled="disabled">
+						aria-describedby="basic-addon2" required id="ciudad_proveedor" disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon3">Nombre del Cliente</span>
+					<span class="input-group-text" id="basic-addon3">Direccion del Proveedor</span>
 					<input type="text" class="form-control"
-						aria-describedby="basic-addon3" required id="nombre_cliente"  disabled="disabled">
+						aria-describedby="basic-addon3" required id="direccion_proveedor"  disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon4">Direccion</span> <input
+					<span class="input-group-text" id="basic-addon4">Nombre Proveedor</span> <input
 						type="text" class="form-control"
-						aria-describedby="basic-addon4" required id="direccion_cliente"  disabled="disabled">
+						aria-describedby="basic-addon4" required id="nombre_proveedor"  disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon5">Telefono</span> <input
 						type="text" class="form-control"
-						aria-describedby="basic-addon5" required id="telefono_cliente"  disabled="disabled">
+						aria-describedby="basic-addon5" required id="telefono_proveedor"  disabled="disabled">
 				</div>
 			</form>
 
 			<button type="button" class="btn btn-primary" onclick="enviar()">
-				<i class="fas fa-search"></i> Buscar Cliente
+				<i class="fas fa-search"></i> Buscar Proveedor
 			</button>
 			
 			<br>
@@ -131,24 +131,24 @@
 			<div class="container">
 				<div class="row">
 					<button type="button" class="btn btn-success"
-						onclick="window.location.href='/insertarcliente.jsp'">
-						<i class="fas fa-plus-circle"></i> Agregar Cliente
+						onclick="window.location.href='/insertarproveedor.jsp'">
+						<i class="fas fa-plus-circle"></i> Agregar Proveedor
 					</button>
 					<button type="button" class="btn btn-danger"
-						onclick="window.location.href='/eliminarcliente.jsp'">
-						<i class="fas fa-trash"></i> Eliminar Cliente
+						onclick="window.location.href='/eliminarproveedor.jsp'">
+						<i class="fas fa-trash"></i> Eliminar Proveedor
 					</button>
 					<button type="button" class="btn btn-warning"
-						onclick="window.location.href='/actualizarcliente.jsp'">
-						<i class="fas fa-pen-alt"></i> Actualizar Cliente
+						onclick="window.location.href='/actualizarproveedor.jsp'">
+						<i class="fas fa-pen-alt"></i> Actualizar Proveedor
 					</button>
 					<button type="button" class="btn btn-primary"
-						onclick="window.location.href='/buscarcliente.jsp'">
-						<i class="fas fa-search"></i> Buscar un Cliente
+						onclick="window.location.href='/buscarproveedor.jsp'">
+						<i class="fas fa-search"></i> Buscar un Proveedor
 					</button>
 					<button type="button" class="btn btn-primary"
-						onclick="window.location.href='/listausuarios.jsp'">
-						<i class="fas fa-search"></i> Listar todos los Clientes
+						onclick="window.location.href='/listaproveedores.jsp'">
+						<i class="fas fa-search"></i> Listar todos los Proveedores
 					</button>
 				</div>
 			</div>
@@ -159,7 +159,7 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado y programado por Grupo 4 <i
+					Grupo 4 <i
 					class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
@@ -171,11 +171,11 @@
 				var req = new XMLHttpRequest();
 				var coincidencia = false;
 				var user=   document.getElementById("idsearch").value;
-				req.open('GET', 'http://localhost:8080/consultarcliente?cliente='+user, false);
+				req.open('GET', 'http://localhost:8080/consultarproveedor?proveedor='+user, false);
 				req.send(null);
-				var cliente = null;
+				var proveedor = null;
 				if (req.status == 200)
-					cliente = JSON.parse(req.responseText);
+					proveedor = JSON.parse(req.responseText);
 				console.log(JSON.parse(req.responseText));
 				
 			
@@ -185,15 +185,15 @@
 				var element2 = document.getElementById("correcto");
 				element2.classList.remove("visually-hidden");
 				
-				console.log(cliente.toString());
+				console.log(proveedor.toString());
 				
-			if (cliente.toString()!=""){
+			if (proveedor.toString()!=""){
 
-				document.getElementById("cedula_cliente").value = cliente[0].cedula_cliente;
-				document.getElementById("email_cliente").value = cliente[0].email_cliente;
-				document.getElementById("nombre_cliente").value = cliente[0].nombre_cliente;
-				document.getElementById("direccion_cliente").value = cliente[0].direccion_cliente;
-				document.getElementById("telefono_cliente").value = cliente[0].telefono_cliente;
+				document.getElementById("nit_proveedor").value = proveedor[0].nit_proveedor;
+				document.getElementById("ciudad_proveedor").value = proveedor[0].ciudad_proveedor;
+				document.getElementById("direccion_proveedor").value = proveedor[0].direccion_proveedor;
+				document.getElementById("nombre_proveedor").value = proveedor[0].nombre_proveedor;
+				document.getElementById("telefono_proveedor").value = proveedor[0].telefono_proveedor;
 				
 				document.getElementById("idsearch").value = "";
 			
@@ -203,11 +203,11 @@
 				element.classList.remove("visually-hidden");
 				var element2 = document.getElementById("correcto");
 				element2.classList.add("visually-hidden");
-				document.getElementById("cedula_cliente").value = "";
-				document.getElementById("email_cliente").value = "";
-				document.getElementById("nombre_cliente").value = "";
-				document.getElementById("direccion_cliente").value = "";
-				document.getElementById("telefono_cliente").value = "";
+				document.getElementById("nit_proveedor").value = "";
+				document.getElementById("ciudad_proveedor").value = "";
+				document.getElementById("direccion_proveedor").value = "";
+				document.getElementById("nombre_proveedor").value = "";
+				document.getElementById("telefono_proveedor").value = "";
 			}
 		}
 	</script>
