@@ -107,6 +107,7 @@ public class ProveedorDAO {
 	 * @return
 	 */
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public ArrayList<ProveedorVO> consultarProveedor(Integer provider) {	
 		//lista que contendra el o los proveedors obtenidos
 		ArrayList<ProveedorVO> listaproveedors = new ArrayList<ProveedorVO>();		
@@ -134,6 +135,9 @@ public class ProveedorDAO {
 			//cerrar resultado, sentencia y conexión
 =======
 	public ArrayList<ProveedorVO> consultarProveedor(String proveedor) {
+=======
+	public ArrayList<ProveedorVO> ProveedorVO(String proveedor) {
+>>>>>>> parent of cac01d1 (Controller Dao)
 
 		// lista que contendra el o los usuarios obtenidos
 		ArrayList<ProveedorVO> listaproveedores = new ArrayList<ProveedorVO>();
