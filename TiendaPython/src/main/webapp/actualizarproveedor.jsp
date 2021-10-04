@@ -76,36 +76,36 @@
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">NIT</span> <input
 						type="text" class="form-control"
-						placeholder="Inserte cedula aqui..."
-						aria-describedby="basic-addon1" required id="cedula_cliente">
+						placeholder="Inserte nit aqui..."
+						aria-describedby="basic-addon1" required id="nit_proveedor">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon2">Ciudad</span> <input
 						type="text" class="form-control"
 						placeholder="Inserte direccion aqui..."
-						aria-describedby="basic-addon2" required id="direccion_cliente">
+						aria-describedby="basic-addon2" required id="ciudad_proveedor">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon3">Direccion</span>
 					<input type="text" class="form-control"
 						placeholder="Inserte e-mail aqui..."
-						aria-describedby="basic-addon3" required id="email_cliente">
+						aria-describedby="basic-addon3" required id="direccion_proveedor">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon4">Nombre Proveedor</span> <input
 						type="text" class="form-control"
 						placeholder="Inserte nombre completo aqui..."
-						aria-describedby="basic-addon4" required id="nombre_cliente">
+						aria-describedby="basic-addon4" required id="nombre_proveedor">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon5">Telefono</span> <input
 						type="text" class="form-control"
 						placeholder="Inserte telefono aqui..."
-						aria-describedby="basic-addon5" required id="telefono_cliente">
+						aria-describedby="basic-addon5" required id="telefono_proveedor">
 				</div>
 			</form>
 
@@ -194,7 +194,7 @@
 				formData.append("telefono_proveedor",
 						document.getElementById("telefono_proveedor").value);
 				var xhr = new XMLHttpRequest();
-				xhr.open("PUT", "http://localhost:8080/actualizarproveedores");
+				xhr.open("PUT", "http://localhost:8080/actualizarproveedor");
 
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");
