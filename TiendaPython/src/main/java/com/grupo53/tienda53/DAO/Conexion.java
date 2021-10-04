@@ -10,7 +10,7 @@ import java.sql.*;
 public class Conexion {
 	
 	/** Parametros de conexion */
-	static String nombre_base_datos = "minitic";
+	static String nombre_base_datos = "TiendaPython";
 	static String usuariobd = "root";
 	static String clavebd = "mintic";
 	static String url = "jdbc:mysql://localhost/" + nombre_base_datos;
