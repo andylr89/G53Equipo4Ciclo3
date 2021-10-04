@@ -23,7 +23,7 @@ public class ProveedorController {
 	 * */
 
 	@PostMapping("/registrarproveedor")
-	public void registrarCliente(ProveedorVO provider) {
+	public void registrarProveedor(ProveedorVO provider) {
 		ProveedorDAO Dao = new ProveedorDAO();
 		Dao.registrarProveedor(provider);
 	}
