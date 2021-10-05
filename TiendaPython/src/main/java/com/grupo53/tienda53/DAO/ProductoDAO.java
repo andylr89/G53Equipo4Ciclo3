@@ -6,11 +6,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.grupo53.tienda53.DTO.ProductoVO;
+import com.grupo53.tienda53.DTO.ClienteVO;
+
+/**
+ * Clase que permite el acceso a la base de datos
+ *
+ */
 
 public class ProductoDAO {
-	
-	public void registrarProducto(ProductoVO product) {
+	/**
+	 * Permite registrar un Cliente nuevo
+	 * 
+	 * @param user
+	 */
+
+	public void registrarCliente(ClienteVO client) {
 		//llama y crea una instancia de la clase encargada de hacer la conexión
 		Conexion conex = new Conexion();
 
@@ -19,13 +29,12 @@ public class ProductoDAO {
 			Statement estatuto = conex.getConnection().createStatement();
 			
 			//String que contiene la sentencia insert a ejecutar
-			String sentencia = "INSERT INTO productos VALUES(" 
-					+ product.getCodigo_producto() + "," 
-					+ product.getIva_compra() + ","
-					+ product.getNit_proveedor() + ",'" 
-					+ product.getNombre_producto()+ "'," 
-					+ product.getPrecio_compra() + "," 
-					+ product.getPrecio_venta() + "" 
+			String sentencia = "INSERT INTO clientes VALUES(" 
+					+ client.getCedula_cliente() + "," + "'"
+					+ client.getDireccion_cliente() + "'," + "'" 
+					+ client.getEmail_cliente() + "'," + "'" 
+					+ client.getNombre_cliente()+ "'," + "'" 
+					+ client.getTelefono_cliente() + "'" 
 					+ ");";
 			
 			//se ejecuta la sentencia en la base de datos
@@ -39,92 +48,54 @@ public class ProductoDAO {
 		} catch (SQLException e) {
 			//si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo insertar el producto");
+			System.out.println("No se pudo insertar el cliente");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
 			//si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo insertar el producto");
+			System.out.println("No se pudo insertar el cliente");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}
 
 	}
 
-
-	public ArrayList<ProductoVO> consultarProducto(Integer product) {	
-		//lista que contendra el o los productos obtenidos
-		ArrayList<ProductoVO> listaproductos = new ArrayList<ProductoVO>();		
-		//instancia de la conexión
-		Conexion conex = new Conexion();
-		try {
-			//prepare la sentencia en la base de datos
-			PreparedStatement consulta = conex.getConnection()
-					.prepareStatement("SELECT * FROM productos where codigo_producto = ? ");		
-			// se cambia el comodin ? por el dato que ha llegado en el parametro de la funcion
-			consulta.setInt(1, product);			
-			//ejecute la sentencia
-			ResultSet res = consulta.executeQuery();			
-			//cree un objeto basado en la clase entidad con los datos encontrados
-			if (res.next()) {
-				ProductoVO newproducto = new ProductoVO();
-				newproducto.setCodigo_producto(Integer.parseInt(res.getString("codigo_producto")));
-				newproducto.setIva_compra(Double.parseDouble(res.getString("iva_compra")));
-				newproducto.setNit_proveedor(Integer.parseInt(res.getString("nit_proveedor")));
-				newproducto.setNombre_producto(res.getString("nombre_producto"));
-				newproducto.setPrecio_compra(Double.parseDouble(res.getString("precio_compra")));
-				newproducto.setPrecio_venta(Double.parseDouble(res.getString("precio_venta")));
-
-				listaproductos.add(newproducto);
-			}
-			//cerrar resultado, sentencia y conexión
-			res.close();
-			consulta.close();
-			conex.desconectar();
-
-		} catch (SQLException e) {
-			//si hay un error en el sql mostrarlo
-			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo consultar el producto");
-			System.out.println(e.getMessage());
-			System.out.println(e.getErrorCode());
-		} catch (Exception e) {
-			//si hay cualquier otro error mostrarlo
-			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo consultar el producto");
-			System.out.println(e.getMessage());
-			System.out.println(e.getLocalizedMessage());
-		}
-		return listaproductos;
-	}
-
-
-	public ArrayList<ProductoVO> listaDeProductos() {
-		//lista que contendra el o los productos obtenidos
-		ArrayList<ProductoVO> listaproductos = new ArrayList<ProductoVO>();
+	/**
+	 * permite consultar el Cliente asociado al user enviado como parametro
+	 * 
+	 * @param documento
+	 * @return
+	 */
+	public ArrayList<ClienteVO> consultarCliente(String cliente) {
+		
+		//lista que contendra el o los clientes obtenidos
+		ArrayList<ClienteVO> listaclientes = new ArrayList<ClienteVO>();
 		
 		//instancia de la conexión
 		Conexion conex = new Conexion();
 
 		try {
 			//prepare la sentencia en la base de datos
-			PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM productos");
+			PreparedStatement consulta = conex.getConnection()
+					.prepareStatement("SELECT * FROM clientes where cedula_cliente = ? ");
+			
+			// se cambia el comodin ? por el dato que ha llegado en el parametro de la funcion
+			consulta.setString(1, cliente);
 			
 			//ejecute la sentencia
 			ResultSet res = consulta.executeQuery();
 			
-			//cree un objeto para cada encontrado en la base de datos basado en la clase entidad con los datos encontrados
-			while (res.next()) {
-				ProductoVO newproducto = new ProductoVO();
-				newproducto.setCodigo_producto(Integer.parseInt(res.getString("codigo_producto")));
-				newproducto.setIva_compra(Double.parseDouble(res.getString("iva_compra")));
-				newproducto.setNit_proveedor(Integer.parseInt(res.getString("nit_proveedor")));
-				newproducto.setNombre_producto(res.getString("nombre_producto"));
-				newproducto.setPrecio_compra(Double.parseDouble(res.getString("precio_compra")));
-				newproducto.setPrecio_venta(Double.parseDouble(res.getString("precio_venta")));
+			//cree un objeto basado en la clase entidad con los datos encontrados
+			if (res.next()) {
+				ClienteVO Cliente = new ClienteVO();
+				Cliente.setCedula_cliente(Integer.parseInt(res.getString("cedula_cliente")));
+				Cliente.setDireccion_cliente(res.getString("direccion_cliente"));
+				Cliente.setEmail_cliente(res.getString("email_cliente"));
+				Cliente.setNombre_cliente(res.getString("nombre_cliente"));
+				Cliente.setTelefono_cliente(res.getString("telefono_cliente"));
 
-				listaproductos.add(newproducto);
+				listaclientes.add(Cliente);
 			}
 			
 			//cerrar resultado, sentencia y conexión
@@ -135,21 +106,73 @@ public class ProductoDAO {
 		} catch (SQLException e) {
 			//si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo consultar todos los productos");
+			System.out.println("No se pudo consultar el cliente");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
 			//si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo consultar todos los productos");
+			System.out.println("No se pudo consultar el cliente");
+			System.out.println(e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		}
+		return listaclientes;
+	}
+
+	/**
+	 * permite consultar la lista de todos los clientes
+	 * 
+	 * @return
+	 */
+	public ArrayList<ClienteVO> listaDeClientes() {
+		//lista que contendra el o los clientes obtenidos
+		ArrayList<ClienteVO> listaclientes = new ArrayList<ClienteVO>();
+		
+		//instancia de la conexión
+		Conexion conex = new Conexion();
+
+		try {
+			//prepare la sentencia en la base de datos
+			PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM clientes");
+			
+			//ejecute la sentencia
+			ResultSet res = consulta.executeQuery();
+			
+			//cree un objeto para cada encontrado en la base de datos basado en la clase entidad con los datos encontrados
+			while (res.next()) {
+				ClienteVO Cliente = new ClienteVO();
+				Cliente.setCedula_cliente(Integer.parseInt(res.getString("cedula_cliente")));
+				Cliente.setDireccion_cliente(res.getString("direccion_cliente"));
+				Cliente.setEmail_cliente(res.getString("email_cliente"));
+				Cliente.setNombre_cliente(res.getString("nombre_cliente"));
+				Cliente.setTelefono_cliente(res.getString("telefono_cliente"));
+
+				listaclientes.add(Cliente);
+			}
+			
+			//cerrar resultado, sentencia y conexión
+			res.close();
+			consulta.close();
+			conex.desconectar();
+
+		} catch (SQLException e) {
+			//si hay un error en el sql mostrarlo
+			System.out.println("------------------- ERROR --------------");
+			System.out.println("No se pudo consultar todos los clientes");
+			System.out.println(e.getMessage());
+			System.out.println(e.getErrorCode());
+		} catch (Exception e) {
+			//si hay cualquier otro error mostrarlo
+			System.out.println("------------------- ERROR --------------");
+			System.out.println("No se pudo consultar todos los clientes");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}
 
-		return listaproductos;
+		return listaclientes;
 	}
 
-	public void eliminarProducto(Integer codigo_producto) {
+	public void eliminarCliente(Integer cedula_cliente) {
 		
 		//instancia de la conexion
 		Conexion conex = new Conexion();
@@ -159,7 +182,7 @@ public class ProductoDAO {
 			Statement consulta = conex.getConnection().createStatement();
 			
 			//preparando sentencia a realizar
-			String sentencia = "delete from productos where codigo_producto=" + codigo_producto + ";";
+			String sentencia = "delete from clientes where cedula_cliente=" + cedula_cliente + ";";
 			
 			//impresion de verificación
 			System.out.println("Registrado " + sentencia);
@@ -174,20 +197,20 @@ public class ProductoDAO {
 		} catch (SQLException e) {
 			//si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo eliminar el producto");
+			System.out.println("No se pudo eliminar el cliente");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
 			//si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo eliminar el producto");
+			System.out.println("No se pudo eliminar el cliente");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}
 
 	}
 
-	public void actualizarProducto(ProductoVO product) {
+	public void actualizarCliente(ClienteVO client) {
 		
 		//instancia de conexion
 		Conexion conex = new Conexion();
@@ -197,13 +220,12 @@ public class ProductoDAO {
 			Statement estatuto = conex.getConnection().createStatement();
 			
 			//String con la sentencia a ejecutar
-			String sentencia = "UPDATE productos "
-					+ "SET iva_compra = "+product.getIva_compra()+","
-					+ "nombre_producto = '"+product.getNombre_producto()+"',"
-					+ "nit_proveedor = "+product.getNit_proveedor()+","
-					+ "precio_compra = "+product.getPrecio_compra()+","
-					+ "precio_venta = "+product.getPrecio_venta()+""
-					+ "WHERE codigo_producto = "+product.getCodigo_producto()+";";
+			String sentencia = "UPDATE clientes "
+					+ "SET direccion_cliente = '"+client.getDireccion_cliente()+"',"
+					+ "email_cliente = '"+client.getEmail_cliente()+"',"
+					+ "nombre_cliente = '"+client.getNombre_cliente()+"',"
+					+ "telefono_cliente = '"+client.getTelefono_cliente()+"' "
+					+ "WHERE cedula_cliente = "+client.getCedula_cliente()+";";
 			
 			//ejecuta la sentencia 
 			estatuto.executeUpdate(sentencia);
@@ -218,13 +240,13 @@ public class ProductoDAO {
 		} catch (SQLException e) {
 			//si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo actualizar  el producto");
+			System.out.println("No se pudo actualizar  el cliente");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
 			//si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo eliminar el producto");
+			System.out.println("No se pudo actualizar el cliente");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}
@@ -236,7 +258,7 @@ public class ProductoDAO {
 		
 		//instancia de la conexion
 		Conexion conex = new Conexion();
-
+		
 		try {
 			//sentencia inicializada
 			Statement consulta = conex.getConnection().createStatement();
@@ -244,30 +266,30 @@ public class ProductoDAO {
 			//preparando sentencia a realizar
 			String sentencia = "delete from productos;";
 			
-			//impresion de verificación
+			//impresion de verificacion
 			System.out.println("Registrado " + sentencia);
 			
 			//ejecutando la sentencia en la base de datos
 			consulta.execute(sentencia);
 			
-			//cerrando sentencia y conexión
+			//cerrando sentencia y conexion
 			consulta.close();
 			conex.desconectar();
-
 		} catch (SQLException e) {
 			//si hay un error en el sql mostrarlo
-			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo eliminar todos los productos");
+			System.out.println("-----------ERROR-----------");
+			System.out.println("No se pudieron eliminar todos los productos");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
 			//si hay cualquier otro error mostrarlo
-			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo eliminar todos los productos");
+			System.out.println("-----------ERROR-----------");
+			System.out.println("No se pudieron eliminar todos los productos");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}
-
+		
 	}
+	
 
 }
