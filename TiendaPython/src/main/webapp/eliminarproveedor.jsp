@@ -98,24 +98,24 @@
 			<div class="container">
 				<div class="row">
 					<button type="button" class="btn btn-success"
-						onclick="window.location.href='/insertarcliente.jsp'">
-						<i class="fas fa-plus-circle"></i> Agregar usuario
+						onclick="window.location.href='/insertarproveedor.jsp'">
+						<i class="fas fa-plus-circle"></i> Agregar Proveedor
 					</button>
 					<button type="button" class="btn btn-danger"
-						onclick="window.location.href='/eliminarcliente.jsp'">
-						<i class="fas fa-trash"></i> Eliminar Cliente
+						onclick="window.location.href='/eliminarproveedor.jsp'">
+						<i class="fas fa-trash"></i> Eliminar Proveedor
 					</button>
 					<button type="button" class="btn btn-warning"
-						onclick="window.location.href='/actualizarcliente.jsp'">
-						<i class="fas fa-pen-alt"></i> Actualizar Cliente
+						onclick="window.location.href='/actualizarproveedor.jsp'">
+						<i class="fas fa-pen-alt"></i> Actualizar Proveedor
 					</button>
 					<button type="button" class="btn btn-primary"
-						onclick="window.location.href='/buscarcliente.jsp'">
-						<i class="fas fa-search"></i> Buscar un Cliente
+						onclick="window.location.href='/buscarproveedor.jsp'">
+						<i class="fas fa-search"></i> Buscar un Proveedor
 					</button>
 					<button type="button" class="btn btn-primary"
-						onclick="window.location.href='/listaclientes.jsp'">
-						<i class="fas fa-search"></i> Listar todos los Clientes
+						onclick="window.location.href='/listaproveedores.jsp'">
+						<i class="fas fa-search"></i> Listar todos los Proveedores
 					</button>
 				</div>
 			</div>
@@ -126,7 +126,7 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado y programado por Grupo 4 <i
+					Grupo 4 <i
 					class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
@@ -138,16 +138,16 @@
 			var coincidencia = false;
 			req.open('GET', 'http://localhost:8080/listarproveedor', false);
 			req.send(null);
-			var clientes = null;
+			var proveedores = null;
 			if (req.status == 200)
-				clientes = JSON.parse(req.responseText);
+				proveedores = JSON.parse(req.responseText);
 			console.log(JSON.parse(req.responseText));
 
 			for (i = 0; i < clientes.length; i++) {
 				
-				console.log(clientes[i].nit_proveedor);
-				if (clientes[i].nit_proveedor == y) {
-					console.log(clientes[i].nit_proveedor + " " + y);
+				console.log(proveedores[i].nit_proveedor);
+				if (proveedores[i].nit_proveedor == y) {
+					console.log(proveedores[i].nit_proveedor + " " + y);
 					coincidencia = true;
 					break;
 				}

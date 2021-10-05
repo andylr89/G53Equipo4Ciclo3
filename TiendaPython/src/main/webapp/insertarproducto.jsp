@@ -37,7 +37,7 @@
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand links" href="index.html"><i
-				class="fas fa-fish"></i>Tienda Los Tiburones</a>
+				class="fas fa-shopping-cart"></i> Tienda Python </a>
 		</div>
 	</nav>
 
@@ -46,11 +46,11 @@
 		<div class="container">
 			<a class="navbar-brand links" href="listausuarios.jsp"> <i
 				class="fas fa-users"></i> Usuarios
-			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
+			</a> <a class="navbar-brand links" href="listaclientes.jsp"> <i
 				class="fas fa-address-book"></i> Clientes
-			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
+			</a> <a class="navbar-brand links" href="listaproveedores.jsp"> <i
 				class="fas fa-truck"></i> Proveedores
-			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
+			</a> <a class="navbar-brand links" href="insertarproducto.jsp"> <i
 				class="fas fa-apple-alt"></i> Productos
 			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
 				class="fas fa-money-check-alt"></i> Ventas
@@ -62,7 +62,7 @@
 
 	<div style="padding-left: 5px">
 		<h1>
-			<i class="fas fa-plus-circle"></i> Insertando archivo de productos
+			<i class="fas fa-cart-plus"></i> Insertando archivo de productos
 		</h1>
 		<div class="container">
 
@@ -78,7 +78,7 @@
 					<label for="formFileLg" class="form-label">Seleccionar
 						archivo CSV con el inventario de productos</label> <input
 						class="form-control form-control-lg" id="archivo" type="file"
-						accept=".csv">
+						accept=".csv"><br>
 					<button type="button" class="btn btn-success"
 						onclick="subirArchivo()">Subir archivo</button>
 				</div>
@@ -92,7 +92,7 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado y programado por Diego Rodriguez <i
+					Grupo 4 <i
 					class="fas fa-code-branch"></i></a>
 			</div>
 		</div>

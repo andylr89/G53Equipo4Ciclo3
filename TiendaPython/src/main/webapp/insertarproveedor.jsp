@@ -137,7 +137,7 @@
 						<i class="fas fa-search"></i> Buscar un Proveedor
 					</button>
 					<button type="button" class="btn btn-primary"
-						onclick="window.location.href='/listaproveedor.jsp'">
+						onclick="window.location.href='/listaproveedores.jsp'">
 						<i class="fas fa-search"></i> Listar todos los Proveedores
 					</button>
 				</div>
