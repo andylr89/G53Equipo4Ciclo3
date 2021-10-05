@@ -13,7 +13,7 @@ public class Conexion {
 	static String nombre_base_datos = "g53e4";
 	static String usuariobd = "tiendasgenericasdr-g9-g38-53.czo3ixoe3xoe.us-east-1.rds.amazonaws.com";
 	static String clavebd = "minticroca";
-	static String url = "jdbc:mariadb://tiendasgenericasdr-g9-g38-53.czo3ixoe3xoe.us-east-1.rds.amazonaws.com/" + nombre_base_datos;
+	static String url = "jdbc:mysql://localhost/" + nombre_base_datos;
 	
 	//objeto sin inicializar de la conexión
 	Connection connection = null;

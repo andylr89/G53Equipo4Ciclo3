@@ -29,7 +29,7 @@
 
 
 <script>
-	var baseurl = "http://localhost:8080/listarproveedor";
+	var baseurl = "http://localhost:8080/listarproveedores";
 	function loadproveedores() {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.open("GET", baseurl, true);
@@ -97,7 +97,7 @@
 			<div class="container">
 				<div class="row">
 					<!--  Aqui es donde se autogenera la tabla basado en el script -->
-					<div class="col align-self-center" id="proveedoresinfo">
+					<div class="col align-self-center" id="clientesinfo">
 					
 					</div>
 	
@@ -107,26 +107,16 @@
 		<h2><i class="fab fa-elementor"></i> Operaciones </h2>
 			<div class="container">
 				<div class="row">
-					<button type="button" class="btn btn-success"
-						onclick="window.location.href='/insertarproveedor.jsp'">
-						<i class="fas fa-plus-circle"></i> Agregar Proveedor
-					</button>
-					<button type="button" class="btn btn-danger"
-						onclick="window.location.href='/eliminarproveedor.jsp'">
-						<i class="fas fa-trash"></i> Eliminar Proveedor
-					</button>
-					<button type="button" class="btn btn-warning"
-						onclick="window.location.href='/actualizarproveedor.jsp'">
-						<i class="fas fa-pen-alt"></i> Actualizar Proveedor
-					</button>
-					<button type="button" class="btn btn-primary"
-						onclick="window.location.href='/buscarproveedor.jsp'">
-						<i class="fas fa-search"></i> Buscar un Proveedor
-					</button>
-					<button type="button" class="btn btn-primary"
-						onclick="window.location.href='/listaproveedores.jsp'">
-						<i class="fas fa-search"></i> Listar todos los Proveedores
-					</button>
+					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarproveedor.jsp'">
+					<i class="fas fa-plus-circle"></i> Agregar Proveedor</button>
+					<button type="button" class="btn btn-danger">
+					<i class="fas fa-trash"></i> Eliminar Proveedor</button>
+					<button type="button" class="btn btn-warning">
+					<i class="fas fa-pen-alt"></i> Actualizar Proveedor</button>
+					<button type="button" class="btn btn-primary">
+					<i class="fas fa-search"></i> Buscar un Proveedor</button>
+					<button type="button" class="btn btn-primary">
+					<i class="fas fa-search"></i> Listar todos los Proveedores</button>
 				</div>
 			</div>
 	</div>
