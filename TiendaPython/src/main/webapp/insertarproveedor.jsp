@@ -159,7 +159,7 @@
  			var y = document.getElementById("nombre_proveedor").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			req.open('GET', 'http://localhost:8080/listarproveedores', false);
+			req.open("GET", "http://localhost:8080/listarproveedor", false);
 			req.send(null);
 			var proveedores = null;
 			if (req.status == 200)
@@ -169,13 +169,13 @@
 			for (i = 0; i < proveedores.length; i++) {
 				console.log(proveedores[i].nit_proveedor);
 				console.log(proveedores[i].nombre_proveedor);
-				if (proveedores[i].nit_proveedor === x) {
+				if (proveedores[i].nit_proveedor == x) {
 					console.log(proveedores[i].nit_proveedor + " " + x);
 					coincidencia = true
 					break;
 				}
 
-				if (proveedores[i].nombre_proveedor === y) {
+				if (proveedores[i].nombre_proveedor == y) {
 					console.log(proveedores[i].nombre_proveedor + " " + y);
 					coincidencia = true
 					break;
@@ -183,7 +183,7 @@
 			}
 			console.log(coincidencia);
 
-			if (coincidencia != false) {
+			if (coincidencia == false) {
 				var formData = new FormData();
 				formData.append("nit_proveedor", document
 						.getElementById("nit_proveedor").value);
@@ -196,7 +196,7 @@
 				formData.append("telefono_proveedor",
 						document.getElementById("telefono_proveedor").value);
 				var xhr = new XMLHttpRequest();
-				xhr.open("PUT", "http://localhost:8080/actualizarproveedores");
+				xhr.open("POST", "http://localhost:8080/registrarproveedor");
 
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");

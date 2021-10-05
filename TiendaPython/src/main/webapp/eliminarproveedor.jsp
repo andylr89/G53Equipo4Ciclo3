@@ -77,16 +77,16 @@
 			<form id="form1">
 			
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Cedula</span> <input
+					<span class="input-group-text" id="basic-addon1">Nit Proveedor</span> <input
 						type="text" class="form-control"
 						placeholder="Inserte cedula aqui..."
-						aria-describedby="basic-addon1" required id="cedula_cliente">
+						aria-describedby="basic-addon1" required id="nit_proveedor">
 				</div>
 
 			</form>
 
 			<button type="button" class="btn btn-danger" onclick="eliminar()">
-				<i class="fas fa-skull-crossbones"></i> Eliminar Cliente
+				<i class="fas fa-skull-crossbones"></i> Eliminar Proveedor
 			</button>
 			
 			<br>
@@ -133,10 +133,10 @@
 	</nav>
 	<script>
 		function eliminar() {
-			var y = document.getElementById("cedula_cliente").value;
+			var y = document.getElementById("nit_proveedor").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			req.open('GET', 'http://localhost:8080/listarclientes', false);
+			req.open('GET', 'http://localhost:8080/listarproveedor', false);
 			req.send(null);
 			var clientes = null;
 			if (req.status == 200)
@@ -145,9 +145,9 @@
 
 			for (i = 0; i < clientes.length; i++) {
 				
-				console.log(clientes[i].cedula_cliente);
-				if (clientes[i].cedula_cliente == y) {
-					console.log(clientes[i].cedula_cliente + " " + y);
+				console.log(clientes[i].nit_proveedor);
+				if (clientes[i].nit_proveedor == y) {
+					console.log(clientes[i].nit_proveedor + " " + y);
 					coincidencia = true;
 					break;
 				}
@@ -155,10 +155,10 @@
 			console.log(coincidencia);
 
 			if (coincidencia != false) {
-				var cedula=document.getElementById("cedula_cliente").value;
+				var nit=document.getElementById("nit_proveedor").value;
 				
 				var xhr = new XMLHttpRequest();
-				xhr.open("DELETE", "http://localhost:8080/eliminarcliente?cedula_cliente="+cedula);
+				xhr.open("DELETE", "http://localhost:8080/eliminarproveedor?nit_proveedor="+nit);
 				
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");
@@ -166,7 +166,7 @@
 				var element2 = document.getElementById("correcto");
 				element2.classList.remove("visually-hidden");
 
-				document.getElementById("cedula_cliente").value = "";
+				document.getElementById("nit_proveedor").value = "";
 				xhr.send();
 
 			} else {
@@ -176,7 +176,7 @@
 				var element2 = document.getElementById("correcto");
 				element2.classList.add("visually-hidden");
 				
-				document.getElementById("cedula_cliente").value = "";;
+				document.getElementById("nit_proveedor").value = "";;
 			}
 		}
 	</script>
