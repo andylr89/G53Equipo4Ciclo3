@@ -10,7 +10,7 @@
 <!-- Tamaño de la pantalla -->
 <meta name="viewport" content="width=device-width">
 <!-- titulo de la pestaña -->
-<title>Eliminar Cliente</title>
+<title>Eliminar Proveedor</title>
 <!-- bootstrap-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -48,9 +48,9 @@
 				class="fas fa-users"></i> Usuarios
 			</a> <a class="navbar-brand links" href="listaclientes.jsp"> <i
 				class="fas fa-address-book"></i> Clientes
-			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
+			</a> <a class="navbar-brand links" href="listaproveedores.jsp"> <i
 				class="fas fa-truck"></i> Proveedores
-			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
+			</a> <a class="navbar-brand links" href="insertarproducto.jsp"> <i
 				class="fas fa-apple-alt"></i> Productos
 			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
 				class="fas fa-money-check-alt"></i> Ventas
@@ -62,31 +62,31 @@
 
 	<div style="padding-left: 5px">
 		<h1>
-			<i class="fas fa-skull-crossbones"></i> Datos del cliente a eliminar
+			<i class="fas fa-skull-crossbones"></i> Datos del Proveedor a eliminar
 		</h1>
 		<div class="container">
 
 
 			<div id="error" class="alert alert-danger visually-hidden"
-				role="alert">Error al eliminar el cliente, verifique que 
-				exista un cliente con la cedula y nombre dados</div>
+				role="alert">Error al eliminar el Proveedor, verifique que 
+				exista un Proveedor con el NIT y nombre dados</div>
 
 			<div id="correcto" class="alert alert-success visually-hidden"
-				role="alert">Cliente eliminado con exito</div>
+				role="alert">Proveedor eliminado con exito</div>
 
 			<form id="form1">
 			
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Nit Proveedor</span> <input
 						type="text" class="form-control"
-						placeholder="Inserte cedula aqui..."
+						placeholder="Inserte NIT aqui..."
 						aria-describedby="basic-addon1" required id="nit_proveedor">
 				</div>
 
 			</form>
 
 			<button type="button" class="btn btn-danger" onclick="eliminar()">
-				<i class="fas fa-skull-crossbones"></i> Eliminar Proveedor
+				<i class="fas fa-trash"></i> Eliminar Proveedor
 			</button>
 			
 			<br>
@@ -126,8 +126,7 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Grupo 4 <i
-					class="fas fa-code-branch"></i></a>
+					Grupo 4 <i class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
 	</nav>
@@ -143,7 +142,7 @@
 				proveedores = JSON.parse(req.responseText);
 			console.log(JSON.parse(req.responseText));
 
-			for (i = 0; i < clientes.length; i++) {
+			for (i = 0; i < proveedores.length; i++) {
 				
 				console.log(proveedores[i].nit_proveedor);
 				if (proveedores[i].nit_proveedor == y) {
