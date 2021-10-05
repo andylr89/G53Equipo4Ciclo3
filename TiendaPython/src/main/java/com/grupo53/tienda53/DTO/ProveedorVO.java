@@ -71,12 +71,4 @@ public class ProveedorVO implements Serializable {
 	public void setTelefono_proveedor(String telefono_proveedor) {
 		this.telefono_proveedor = telefono_proveedor;
 	}
-	
-	
-	
-	
-	}
-	
-	
-
-
+}
