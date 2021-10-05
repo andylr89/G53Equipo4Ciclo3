@@ -170,8 +170,8 @@
 				
 				var req = new XMLHttpRequest();
 				var coincidencia = false;
-				var user=   document.getElementById("idsearch").value;
-				req.open('GET', 'http://localhost:8080/consultarproveedor?proveedor='+user, false);
+				var provider=   document.getElementById("idsearch").value;
+				req.open('GET', 'http://localhost:8080/consultarproveedor?provider='+provider, false);
 				req.send(null);
 				var proveedor = null;
 				if (req.status == 200)
