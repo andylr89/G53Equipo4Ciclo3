@@ -76,36 +76,36 @@
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">NIT</span> <input
 						type="text" class="form-control"
-						placeholder="Inserte nit aqui..."
-						aria-describedby="basic-addon1" required id="nit_proveedor">
+						placeholder="Inserte cedula aqui..."
+						aria-describedby="basic-addon1" required id="cedula_cliente">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon2">Ciudad</span> <input
 						type="text" class="form-control"
 						placeholder="Inserte direccion aqui..."
-						aria-describedby="basic-addon2" required id="ciudad_proveedor">
+						aria-describedby="basic-addon2" required id="direccion_cliente">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon3">Direccion</span>
 					<input type="text" class="form-control"
 						placeholder="Inserte e-mail aqui..."
-						aria-describedby="basic-addon3" required id="direccion_proveedor">
+						aria-describedby="basic-addon3" required id="email_cliente">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon4">Nombre Proveedor</span> <input
 						type="text" class="form-control"
 						placeholder="Inserte nombre completo aqui..."
-						aria-describedby="basic-addon4" required id="nombre_proveedor">
+						aria-describedby="basic-addon4" required id="nombre_cliente">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon5">Telefono</span> <input
 						type="text" class="form-control"
 						placeholder="Inserte telefono aqui..."
-						aria-describedby="basic-addon5" required id="telefono_proveedor">
+						aria-describedby="basic-addon5" required id="telefono_cliente">
 				</div>
 			</form>
 
@@ -157,7 +157,7 @@
  			var y = document.getElementById("nombre_proveedor").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			req.open('GET', 'http://localhost:8080/listarproveedor', false);
+			req.open('GET', 'http://localhost:8080/listarproveedores', false);
 			req.send(null);
 			var proveedores = null;
 			if (req.status == 200)
@@ -194,7 +194,7 @@
 				formData.append("telefono_proveedor",
 						document.getElementById("telefono_proveedor").value);
 				var xhr = new XMLHttpRequest();
-				xhr.open("PUT", "http://localhost:8080/actualizarproveedor");
+				xhr.open("PUT", "http://localhost:8080/actualizarproveedores");
 
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");
