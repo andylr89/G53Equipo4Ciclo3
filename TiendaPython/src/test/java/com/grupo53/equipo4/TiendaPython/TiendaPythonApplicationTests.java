@@ -1,4 +1,4 @@
-package com.grupo53.tienda53.BO;
+package com.grupo53.equipo4.TiendaPython;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

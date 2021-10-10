@@ -81,7 +81,7 @@
 			<i class="fas fa-truck"></i> Proveedores</a>
 			<a class="navbar-brand links" href="insertarproducto.jsp">
 			<i class="fas fa-apple-alt"></i> Productos</a>
-			<a class="navbar-brand links" href="listaproductos.jsp">
+			<a class="navbar-brand links" href="listausuarios.jsp">
 			<i class="fas fa-money-check-alt"></i> Ventas</a>
 			<a class="navbar-brand links" href="listausuarios.jsp">
 			<i class="fas fa-clipboard-list"></i> Reportes</a>

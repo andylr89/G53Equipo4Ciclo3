@@ -1,7 +1,6 @@
 package com.grupo53.tienda53.DAO;
 
 import java.sql.*;
-import java.text.SimpleDateFormat;
 
 /**
  * Clase que permite conectar con la base de datos
@@ -30,12 +29,6 @@ public class Conexion {
 			//si hay conexión correcta mostrar información en consola
 			if (connection != null) {
 				System.out.println("Conexión a base de datos " + nombre_base_datos + " OK\n");
-				
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
-				Date date = new Date(System.currentTimeMillis());
-				System.out.println(formatter.format(date));
-				System.out.println(url);
-				System.out.println("------------------------------------------------------");
 			}
 		
 		} catch (SQLException e) {

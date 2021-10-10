@@ -36,7 +36,7 @@ public class ProductoController {
 	}
 
 	@GetMapping("/listarproductos")
-	public ArrayList<ProductoVO> listaDeProductos() {
+	public ArrayList<ProductoVO> listaDeProductoes() {
 		ProductoDAO Dao = new ProductoDAO();
 		return Dao.listaDeProductos();
 	}
