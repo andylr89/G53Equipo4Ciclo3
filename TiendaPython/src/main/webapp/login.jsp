@@ -34,8 +34,7 @@
 	<nav class="navbar navbar-dark bg-primary">
 		<div class="container-fluid">
 			<a class="navbar-brand links" href="index.html"> <i
-				class="fas fa-shopping-cart"></i> Tienda Python
-			</a>
+				class="fas fa-shopping-cart"></i> Tienda Python </a>
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="index.html">Home</a>
 				</li>
@@ -100,6 +99,24 @@
 		</div>
 	</div>
 
+
+	<nav class="navbar fixed-bottom navbar-dark bg-dark">
+		<div class="row justify-content-between">
+			<div class="col-4">
+				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
+					Grupo 4 <i
+					class="fas fa-code-branch"></i></a>
+			</div>
+			<!--  
+			<div class="col-4">
+				<a class="navbar-brand links" href="https://github.com/roca12"><i
+					class="fab fa-github-square"></i> Github</a> <a
+					class="navbar-brand links" href=""><i class="fab fa-twitter"></i>
+					Twitter</a>
+			</div>
+			-->
+		</div>
+	</nav>
 
 
 	<!-- Script que trae la informacion de la api y la compara con las entradas -->
