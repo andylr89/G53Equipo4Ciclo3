@@ -24,14 +24,43 @@
 	integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
 	crossorigin="anonymous">
 
-<!-- Cargando mi hoja de estilo 
+<!--Cargando mi hoja de estilo-->
 <link href="style.css" rel="stylesheet" type="text/css" />
--->
+
+
+<script>
+		var baseurl = "http://localhost:8080/listarproductos";
+		function loadproductos() {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.open("GET", baseurl, true);
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+					var productos = JSON.parse(xmlhttp.responseText);
+					var tbltop = "<table class='table table-dark table-striped'><tr><th>Codigo_Producto</th><th>IVA_Compra</th><th>NIT_Proveedor</th><th>Nombre_Producto</th><th>Precio_Compra</th><th>Precio_Venta</th></tr>";
+					var main = "";
+					for (i = 0; i < productos.lenght; i++) {
+						main += "<tr><td>" + productos[i].codigo_producto
+								+ "</td><td>" + productos[i].iva_compra
+								+ "</td><td>" + productos[i].nit_proveedor
+								+ "</td><td>" + productos[i].nombre_producto
+								+ "</td><td>" + productos[i].precio_compra
+								+ "</td><td>" + productos[i].precio_venta
+								+ "</td></tr>";
+					}
+					var tblbottom = "</table>";
+					var tbl = tbltop + main + tblbottom;
+					document.getElementById("productosinfo").innerHTML = tbl;
+				}
+			};
+			xmlhttp.send();
+		}
+		window.onload = function() {
+			loadproductos();
+		}
+	</script>
 
 
 </head>
-
-
 <body>
 	<!-- Navbar-->
 	<nav class="navbar navbar-dark bg-dark">
@@ -61,14 +90,15 @@
 	</nav>
 
 	<div style="padding-left: 5px">
-		<h1>
+		<h2>
 			<i class="fas fa-cart-plus"></i> Insertando archivo de productos
-		</h1>
+		</h2>
 		<div class="container">
 
 
 			<div id="error" class="alert alert-danger visually-hidden"
-				role="alert">Archivo vacio, extensión no valida o datos corruptos (El separador debe ser coma ",")</div>
+				role="alert">Archivo vacio, extensión no valida o datos
+				corruptos (El separador debe ser coma ",")</div>
 
 			<div id="correcto" class="alert alert-success visually-hidden"
 				role="alert">Productos importados desde CSV con exito</div>
@@ -88,12 +118,13 @@
 		</div>
 
 	</div>
+	
+	
 	<nav class="navbar fixed-bottom navbar-dark bg-dark">
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Grupo 4 <i
-					class="fas fa-code-branch"></i></a>
+					Grupo 4 <i class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
 	</nav>
@@ -115,7 +146,7 @@
 
 					var xhr = new XMLHttpRequest();
 					xhr.open("DELETE",
-							"http://localhost:8080/eliminartodoproducto",true);
+							"http://localhost:8080/eliminartodoproducto", true);
 					xhr.send();
 
 					for (var i = 0; i < arrayLineas.length; i += 1) {
@@ -131,14 +162,15 @@
 
 						var formData = new FormData();
 						formData.append("codigo_producto", arraydatos[0]);
-						formData.append("nombre_producto", arraydatos[1]);
+						formData.append("iva_compra", arraydatos[1]);
 						formData.append("nit_proveedor", arraydatos[2]);
-						formData.append("precio_compra", arraydatos[3]);
-						formData.append("iva_compra", arraydatos[4]);
+						formData.append("nombre_producto", arraydatos[3]);
+						formData.append("precio_compra", arraydatos[4]);
 						formData.append("precio_venta", arraydatos[5]);
+						
+						
 						var xhr = new XMLHttpRequest();
-						xhr.open("POST",
-								"http://localhost:8080/registrarproducto");
+						xhr.open("POST","http://localhost:8080/registrarproducto");
 
 						xhr.send(formData);
 					}
