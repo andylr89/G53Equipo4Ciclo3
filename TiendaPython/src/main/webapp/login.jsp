@@ -42,32 +42,20 @@
 			</ul>
 		</div>
 	</nav>
+	<div>
 
+		<img src="fondo_tienda.png" alt="Python" width=100% height=100%>
+	</div>
 
-	<!-- 	<section class="form-login"> -->
-	<!-- 	<div class="position-absolute top-50 start-50 translate-middle login"> -->
-	<!-- 	<h5><i class="fas fa-sign-in-alt"></i> Bienvenido </h5> -->
-	<!-- 	<input class= "controls" type= "text" name= "Usuario" value= "" placeholder="Usuario"><br> -->
-	<!-- 	<input class= "controls" type= "password" name= "Password" value= "" placeholder = "Contraseña"><br> -->
-	<!-- 	<input class= "buttons" type= "submit" name= "" value= "Ingresar"> -->
-	<!-- 	<input class = "buttons" type= "submit" name= "" value = "Registrarse"><br> -->
-	<!-- 	<p><a href="#">¿Olvidaste tu Contraseña?</a></p> -->
-	<!-- 	</div> -->
-	<!-- 	</section> -->
-
-
-	<center>
-		<h1>
-			<br> <br> Bienvenido 
-		</h1>
-	</center>
-
+	
 	<!-- 	Contenedor de los botones y texto -->
 	<div class="container-fluid">
+
 		<div class="position-absolute top-50 start-50 translate-middle login">
 			<div class="row justify-content-md-center">
 				<div class="modal-content">
 					<div class="col-12 user-img text-center mt-2">
+						<h3>Bienvenido</h3>
 						<img src="avatar.png" width="60">
 					</div>
 					<form class="col-12 mt-2">
@@ -100,6 +88,14 @@
 		</div>
 	</div>
 
+	<footer class="text-center">
+		<a class="up-arrow" href="#myPage" data-toggle="tooltip"
+			title="TO TOP"> <span class="glyphicon glyphicon-chevron-up"></span>
+		</a><br> <br>
+		<p>
+			Grupo 4 <a href="#" data-toggle="tooltip" title="#"></a>
+		</p>
+	</footer>
 
 
 	<!-- Script que trae la informacion de la api y la compara con las entradas -->

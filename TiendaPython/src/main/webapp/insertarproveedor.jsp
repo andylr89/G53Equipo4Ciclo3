@@ -50,9 +50,9 @@
 				class="fas fa-address-book"></i> Clientes
 			</a> <a class="navbar-brand links" href="listaproveedores.jsp"> <i
 				class="fas fa-truck"></i> Proveedores
-			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
+			</a> <a class="navbar-brand links" href="insertarproducto.jsp"> <i
 				class="fas fa-apple-alt"></i> Productos
-			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
+			</a> <a class="navbar-brand links" href="ventas.jsp"> <i
 				class="fas fa-money-check-alt"></i> Ventas
 			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
 				class="fas fa-clipboard-list"></i> Reportes
@@ -61,9 +61,9 @@
 	</nav>
 
 	<div style="padding-left: 5px">
-		<h1>
+		<h2>
 			<i class="fas fa-plus-circle"></i> Datos del nuevo Proveedor
-		</h1>
+		</h2>
 		<div class="container">
 
 
@@ -115,9 +115,9 @@
 			</button>
 			<br>
 
-			<h1>
+			<h2>
 				<i class="fas fa-cogs"></i> Operaciones
-			</h1>
+			</h2>
 			<div class="container">
 				<div class="row">
 					<button type="button" class="btn btn-success"
