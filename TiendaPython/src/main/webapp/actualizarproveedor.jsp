@@ -154,7 +154,7 @@
 	<script>
 		function actualizar() {
 			var x = document.getElementById("nit_proveedor").value;
- 			var y = document.getElementById("nombre_proveedor").value;
+ 			//var y = document.getElementById("nombre_proveedor").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
 			req.open('GET', 'http://localhost:8080/listarproveedor', false);
@@ -166,15 +166,8 @@
 
 			for (i = 0; i < proveedores.length; i++) {
 				console.log(proveedores[i].nit_proveedor);
-				console.log(proveedores[i].nombre_proveedor);
 				if (proveedores[i].nit_proveedor === x) {
 					console.log(proveedores[i].nit_proveedor + " " + x);
-					coincidencia = true
-					break;
-				}
-
-				if (proveedores[i].nombre_proveedor === y) {
-					console.log(proveedores[i].nombre_proveedor + " " + y);
 					coincidencia = true
 					break;
 				}
