@@ -79,6 +79,4 @@ public class UsuarioVO implements Serializable {
 	}
 	
 	
-	
-
 }
