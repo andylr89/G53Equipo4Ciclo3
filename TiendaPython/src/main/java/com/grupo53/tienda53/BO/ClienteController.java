@@ -49,5 +49,11 @@ public class ClienteController {
 		ClienteDAO Dao = new ClienteDAO();
 		Dao.actualizarCliente(client);
 	}
+	
+	@GetMapping("/consultacliente")
+	public ArrayList<ClienteVO> consultaCliente(String cli) {
+		ClienteDAO Dao = new ClienteDAO();
+		return Dao.consultaCliente(cli);
+	}
 
 }

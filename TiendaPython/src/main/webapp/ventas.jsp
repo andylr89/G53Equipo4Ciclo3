@@ -70,9 +70,6 @@
 			<div id="error" class="alert alert-danger visually-hidden"
 				role="alert">Error registro solicitado no existe</div>
 
-			<div id="correcto" class="alert alert-success visually-hidden"
-				role="alert">Registro encontrado con exito</div>
-
 			<form id="form1">
 				<br>
 
@@ -219,8 +216,8 @@
 
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			var user = document.getElementById("usersearch").value;
-			req.open('GET', 'http://localhost:8080/consultarusuario?usuario='+ user, false);
+			var user = document.getElementById("idsearch").value;
+			req.open('GET', 'http://localhost:8080/consultacliente?cli='+ user, false);
 			req.send(null);
 			var usuario = null;
 			if (req.status == 200)
@@ -229,31 +226,16 @@
 
 			var element = document.getElementById("error");
 			element.classList.add("visually-hidden");
-			var element2 = document.getElementById("correcto");
-			element2.classList.remove("visually-hidden");
 
 			console.log(usuario.toString());
 
 			if (usuario.toString() != "") {
-
-				document.getElementById("cedula_usuario").value = usuario[0].cedula_usuario;
-				document.getElementById("email_usuario").value = usuario[0].email_usuario;
-				document.getElementById("nombre_usuario").value = usuario[0].nombre_usuario;
-				document.getElementById("password").value = usuario[0].password;
-				document.getElementById("user").value = usuario[0].usuario;
-
-				document.getElementById("usersearch").value = "";
-
+				document.getElementById("nombre_cliente").value = usuario[0].nombre_cliente;
 			} else {
+				document.getElementById("idsearch").value = "";
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
-				var element2 = document.getElementById("correcto");
-				element2.classList.add("visually-hidden");
-				document.getElementById("cedula_usuario").value = "";
-				document.getElementById("email_usuario").value = "";
-				document.getElementById("nombre_usuario").value = "";
-				document.getElementById("password").value = "";
-				document.getElementById("user").value = "";
+				document.getElementById("nombre_cliente").value = "";
 			}
 		}
 	</script>
