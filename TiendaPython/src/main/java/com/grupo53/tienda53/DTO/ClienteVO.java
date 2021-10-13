@@ -3,6 +3,8 @@ package com.grupo53.tienda53.DTO;
 import java.io.Serializable;
 
 public class ClienteVO implements Serializable {
+	
+	
 	private Integer cedula_cliente;
 	private String direccion_cliente;
 	private String email_cliente;

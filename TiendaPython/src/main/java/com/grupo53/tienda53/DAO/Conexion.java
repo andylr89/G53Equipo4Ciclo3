@@ -10,10 +10,10 @@ import java.sql.*;
 public class Conexion {
 	
 	/** Parametros de conexion */
-	static String nombre_base_datos = "TiendaPython";
-	static String usuariobd = "root";
-	static String clavebd = "mintic";
-	static String url = "jdbc:mysql://localhost/" + nombre_base_datos;
+	static String nombre_base_datos = "g53e4";
+	static String usuariobd = "admin";
+	static String clavebd = "minticroca";
+	static String url = "jdbc:mariadb://tiendasgenericasdr-g9-g38-53.czo3ixoe3xoe.us-east-1.rds.amazonaws.com/" + nombre_base_datos;
 	
 	//objeto sin inicializar de la conexión
 	Connection connection = null;

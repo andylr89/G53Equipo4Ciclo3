@@ -65,59 +65,69 @@
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand links" href="index.html"><i
-				class="fas fa-python"></i>Tienda Python</a>
+				class="fas fa-shopping-cart"></i> Tienda Python </a>
 		</div>
 	</nav>
 
 	<!-- Navbar modulos-->
 	<nav class="navbar navbar-dark bg-primary">
 		<div class="container">
-			<a class="navbar-brand links" href="listausuarios.jsp">
-			<i class="fas fa-users"></i> Usuarios</a> 
-			<a class="navbar-brand links" href="listausuarios.jsp">
-			<i class="fas fa-address-book"></i> Clientes</a>
-			<a class="navbar-brand links" href="listausuarios.jsp">
-			<i class="fas fa-truck"></i> Proveedores</a>
-			<a class="navbar-brand links" href="listausuarios.jsp">
-			<i class="fas fa-apple-alt"></i> Productos</a>
-			<a class="navbar-brand links" href="listausuarios.jsp">
-			<i class="fas fa-money-check-alt"></i> Ventas</a>
-			<a class="navbar-brand links" href="listausuarios.jsp">
-			<i class="fas fa-clipboard-list"></i> Reportes</a>
+			<a class="navbar-brand links" href="listausuarios.jsp"> <i
+				class="fas fa-users"></i> Usuarios
+			</a> <a class="navbar-brand links" href="listaclientes.jsp"> <i
+				class="fas fa-address-book"></i> Clientes
+			</a> <a class="navbar-brand links" href="listaproveedores.jsp"> <i
+				class="fas fa-truck"></i> Proveedores
+			</a> <a class="navbar-brand links" href="insertarproducto.jsp"> <i
+				class="fas fa-apple-alt"></i> Productos
+			</a> <a class="navbar-brand links" href="ventas.jsp"> <i
+				class="fas fa-money-check-alt"></i> Ventas
+			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
+				class="fas fa-clipboard-list"></i> Reportes
+			</a>
 		</div>
 	</nav>
-	
-	
+
+
 	<!-- contenido  -->
-	
+
 	<div style="padding-left: 5px;">
-	
-		<h1><i class="fas fa-list-ol"></i> Tabla de usuarios</h1>
-			<div class="container">
-				<div class="row">
-					<!--  Aqui es donde se autogenera la tabla basado en el script -->
-					<div class="col align-self-center" id="usuariosinfo">
-					
-					</div>
-	
-				</div>
+		
+
+		<h2>
+			<i class="fas fa-th-list"></i> Tabla de usuarios
+		</h2>
+		<div class="container">
+			<div class="row">
+				<!--  Aqui es donde se autogenera la tabla basado en el script -->
+				<div class="col align-self-center" id="usuariosinfo"></div>
+
 			</div>
-	
-		<h1><i class="fas fa-cogs"></i> Operaciones</h1>
-			<div class="container">
-				<div class="row">
-					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarusuario.jsp'">
-					<i class="fas fa-plus-circle"></i> Agregar usuario</button>
-					<button type="button" class="btn btn-danger">
-					<i class="fas fa-trash"></i> Eliminar usuario</button>
-					<button type="button" class="btn btn-warning">
-					<i class="fas fa-pen-alt"></i> Actualizar usuario</button>
-					<button type="button" class="btn btn-primary">
-					<i class="fas fa-search"></i> Buscar un usuario</button>
-					<button type="button" class="btn btn-primary">
-					<i class="fas fa-search"></i> Listar todos los usuarios</button>
-				</div>
+		</div>
+
+		<h2>
+			<i class="fab fa-elementor"></i> Operaciones
+		</h2>
+		<div class="container">
+			<div class="row">
+				<button type="button" class="btn btn-success"
+					onclick="window.location.href='/insertarusuario.jsp'">
+					<i class="fas fa-plus-circle"></i> Agregar usuario
+				</button>
+				<button type="button" class="btn btn-danger">
+					<i class="fas fa-trash"></i> Eliminar usuario
+				</button>
+				<button type="button" class="btn btn-warning">
+					<i class="fas fa-pen-alt"></i> Actualizar usuario
+				</button>
+				<button type="button" class="btn btn-primary">
+					<i class="fas fa-search"></i> Buscar un usuario
+				</button>
+				<button type="button" class="btn btn-primary">
+					<i class="fas fa-search"></i> Listar todos los usuarios
+				</button>
 			</div>
+		</div>
 	</div>
 
 
@@ -125,8 +135,7 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado y programado por Grupo 4 <i
-					class="fas fa-code-branch"></i></a>
+					Grupo 4 <i class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
 	</nav>
