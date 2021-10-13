@@ -232,9 +232,9 @@
 			if (usuario.toString() != "") {
 				document.getElementById("nombre_cliente").value = usuario[0].nombre_cliente;
 			} else {
-				document.getElementById("idsearch").value = "";
-				var element = document.getElementById("error");
-				element.classList.remove("visually-hidden");
+
+			    alert("Error el documento " + user +  " solicitado no esta registrado como cliente");
+				document.getElementById("idsearch").value = "";	
 				document.getElementById("nombre_cliente").value = "";
 			}
 		}
