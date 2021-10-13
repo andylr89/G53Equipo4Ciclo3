@@ -3,8 +3,7 @@
  */
 package com.grupo53.tienda53.DAO;
 
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import com.grupo53.tienda53.DTO.*;
 
@@ -22,9 +21,13 @@ public class VentasDAO {
 			// sentencia que se ejecutara en la base de datos
 			Statement estatuto = conex.getConnection().createStatement();
 
-			String sentencia = "INSERT INTO ventas VALUES(" + venta.getCedula_cliente() + "," + "'"
-					+ venta.getCedula_usuario() + "," + "'" + venta.getIvaventa() + "," + "'" + venta.getTotal_venta()
-					+ "," + "'" + venta.getValor_venta() + "'" + ");";
+			String sentencia = "INSERT INTO ventas VALUES(" 
+			        + venta.getCedula_cliente() + "," + "'"
+					+ venta.getCedula_usuario() + "," + "'" 
+					+ venta.getIvaventa() + "," + "'" 
+					+ venta.getTotal_venta() + "," + "'" 
+					+ venta.getValor_venta() + "'" 
+					+ ");";
 
 			// se ejecuta la sentencia en la base de datos
 			estatuto.executeUpdate(sentencia);
