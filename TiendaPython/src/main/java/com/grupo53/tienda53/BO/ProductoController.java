@@ -30,21 +30,21 @@ public class ProductoController {
 	}
 
 	@GetMapping("/consultarproducto")
-	public ArrayList<ProductoVO> consultarProducto(Integer code) {
+	public ArrayList<ProductoVO> consultarProducto(Integer product) {
 		ProductoDAO Dao = new ProductoDAO();
-		return Dao.consultarProducto(code);
+		return Dao.consultarProducto(product);
 	}
 
 	@GetMapping("/listarproductos")
-	public ArrayList<ProductoVO> listaDeProductoes() {
+	public ArrayList<ProductoVO> listaDeProductos() {
 		ProductoDAO Dao = new ProductoDAO();
 		return Dao.listaDeProductos();
 	}
 	
 	@DeleteMapping("/eliminarproducto")
-	public void eliminarProducto(Integer code) {
+	public void eliminarProducto(Integer codigo_producto) {
 		ProductoDAO Dao = new ProductoDAO();
-		Dao.eliminarProducto(code);
+		Dao.eliminarProducto(codigo_producto);
 	}
 	
 	@DeleteMapping("/eliminartodoproducto")

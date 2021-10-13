@@ -6,10 +6,20 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.grupo53.tienda53.DTO.ProductoVO;
+import com.grupo53.tienda53.DTO.*;
 
+/**
+ * Clase que permite el acceso a la base de datos
+ *
+ */
 public class ProductoDAO {
-	
+
+	/**
+	 * Permite registrar un Usuario nuevo
+	 * 
+	 * @param user
+	 */
+
 	public void registrarProducto(ProductoVO product) {
 		//llama y crea una instancia de la clase encargada de hacer la conexión
 		Conexion conex = new Conexion();
@@ -20,12 +30,12 @@ public class ProductoDAO {
 			
 			//String que contiene la sentencia insert a ejecutar
 			String sentencia = "INSERT INTO productos VALUES(" 
-					+ product.getCodigo_producto() + "," 
-					+ product.getIva_compra() + ","
-					+ product.getNit_proveedor() + ",'" 
-					+ product.getNombre_producto()+ "'," 
-					+ product.getPrecio_compra() + "," 
-					+ product.getPrecio_venta() + "" 
+					+ product.getCodigo_producto() + "," + "'"
+					+ product.getIva_compra() + "'," + "'" 
+					+ product.getNit_proveedor() + "'," + "'" 
+					+ product.getNombre_producto() + "'," + "'" 
+					+ product.getPrecio_compra() + "'," + "'"
+					+ product.getPrecio_venta() + "'"
 					+ ");";
 			
 			//se ejecuta la sentencia en la base de datos
@@ -39,33 +49,44 @@ public class ProductoDAO {
 		} catch (SQLException e) {
 			//si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo insertar el producto");
+			System.out.println("No se pudo insertar el Producto");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
 			//si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo insertar el producto");
+			System.out.println("No se pudo insertar el Producto");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}
 
 	}
 
-
-	public ArrayList<ProductoVO> consultarProducto(Integer product) {	
-		//lista que contendra el o los productos obtenidos
-		ArrayList<ProductoVO> listaproductos = new ArrayList<ProductoVO>();		
+	/**
+	 * permite consultar el Usuario asociado al user enviado como parametro
+	 * 
+	 * @param documento
+	 * @return
+	 */
+	public ArrayList<ProductoVO> consultarProducto(Integer product) {
+		
+		//lista que contendra el o los usuarios obtenidos
+		ArrayList<ProductoVO> listaproductos = new ArrayList<ProductoVO>();
+		
 		//instancia de la conexión
 		Conexion conex = new Conexion();
+
 		try {
 			//prepare la sentencia en la base de datos
 			PreparedStatement consulta = conex.getConnection()
-					.prepareStatement("SELECT * FROM productos where codigo_producto = ? ");		
+					.prepareStatement("SELECT * FROM productos where codigo_producto = ? ");
+			
 			// se cambia el comodin ? por el dato que ha llegado en el parametro de la funcion
-			consulta.setInt(1, product);			
+			consulta.setInt(1, product);
+			
 			//ejecute la sentencia
-			ResultSet res = consulta.executeQuery();			
+			ResultSet res = consulta.executeQuery();
+			
 			//cree un objeto basado en la clase entidad con los datos encontrados
 			if (res.next()) {
 				ProductoVO newproducto = new ProductoVO();
@@ -75,9 +96,10 @@ public class ProductoDAO {
 				newproducto.setNombre_producto(res.getString("nombre_producto"));
 				newproducto.setPrecio_compra(Double.parseDouble(res.getString("precio_compra")));
 				newproducto.setPrecio_venta(Double.parseDouble(res.getString("precio_venta")));
-
+				
 				listaproductos.add(newproducto);
 			}
+			
 			//cerrar resultado, sentencia y conexión
 			res.close();
 			consulta.close();
@@ -86,22 +108,26 @@ public class ProductoDAO {
 		} catch (SQLException e) {
 			//si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo consultar el producto");
+			System.out.println("No se pudo consultar el Producto");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
 			//si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo consultar el producto");
+			System.out.println("No se pudo consultar el Producto");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}
 		return listaproductos;
 	}
 
-
+	/**
+	 * permite consultar la lista de todos los usuarios
+	 * 
+	 * @return
+	 */
 	public ArrayList<ProductoVO> listaDeProductos() {
-		//lista que contendra el o los productos obtenidos
+		//lista que contendra el o los usuarios obtenidos
 		ArrayList<ProductoVO> listaproductos = new ArrayList<ProductoVO>();
 		
 		//instancia de la conexión
@@ -135,13 +161,13 @@ public class ProductoDAO {
 		} catch (SQLException e) {
 			//si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo consultar todos los productos");
+			System.out.println("No se pudo consultar todos los Productos");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
 			//si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo consultar todos los productos");
+			System.out.println("No se pudo consultar todos los Productos");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}
@@ -174,13 +200,13 @@ public class ProductoDAO {
 		} catch (SQLException e) {
 			//si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo eliminar el producto");
+			System.out.println("No se pudo eliminar el Producto");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
 			//si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo eliminar el producto");
+			System.out.println("No se pudo eliminar el Producto");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}
@@ -198,11 +224,11 @@ public class ProductoDAO {
 			
 			//String con la sentencia a ejecutar
 			String sentencia = "UPDATE productos "
-					+ "SET iva_compra = "+product.getIva_compra()+","
+					+ "SET iva_compra = "+product.getIva_compra()+"',"
 					+ "nombre_producto = '"+product.getNombre_producto()+"',"
-					+ "nit_proveedor = "+product.getNit_proveedor()+","
-					+ "precio_compra = "+product.getPrecio_compra()+","
-					+ "precio_venta = "+product.getPrecio_venta()+""
+					+ "nit_proveedor = "+product.getNit_proveedor()+"',"
+					+ "precio_compra = "+product.getPrecio_compra()+"',"
+					+ "precio_venta = "+product.getPrecio_venta()+"',"
 					+ "WHERE codigo_producto = "+product.getCodigo_producto()+";";
 			
 			//ejecuta la sentencia 
@@ -218,13 +244,13 @@ public class ProductoDAO {
 		} catch (SQLException e) {
 			//si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo actualizar  el producto");
+			System.out.println("No se pudo actualizar  el Producto");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
 			//si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo eliminar el producto");
+			System.out.println("No se pudo eliminar el Producto");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}

@@ -137,7 +137,7 @@ public class ProveedorDAO {
 		} catch (Exception e) {
 			//si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo consultar todos los proveedors");
+			System.out.println("No se pudo consultar todos los proveedores");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}
@@ -197,7 +197,7 @@ public class ProveedorDAO {
 					+ "SET direccion_proveedor = '"+provider.getDireccion_proveedor()+"',"
 					+ "ciudad_proveedor = '"+provider.getCiudad_proveedor()+"',"
 					+ "nombre_proveedor = '"+provider.getNombre_proveedor()+"',"
-					+ "telefono_proveedor = '"+provider.getTelefono_proveedor()+"' "
+					+ "telefono_proveedor = '"+provider.getTelefono_proveedor()+"',"
 					+ "WHERE nit_proveedor = "+provider.getNit_proveedor()+";";
 			
 			//ejecuta la sentencia 
