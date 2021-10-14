@@ -70,6 +70,9 @@
 			<div id="error" class="alert alert-danger visually-hidden"
 				role="alert">Error registro solicitado no existe</div>
 
+			<div id="correcto" class="alert alert-success visually-hidden"
+				role="alert">Registro encontrado con exito</div>
+
 			<form id="form1">
 				<br>
 
@@ -159,6 +162,36 @@
 						class="form-control" aria-describedby="basic-addon7" required
 						id="valor_total" disabled="disabled">
 				</div>
+<<<<<<< HEAD
+
+				<div class="row justify-content-end">
+					<div class="col-4">
+						Total Venta <input type="text" required id="cant" id="tventa"
+							name="tventa" disabled="disabled">
+					</div>
+				</div>
+				<div class="row justify-content-end">
+					<div class="col-4">
+						Total IVA <input type="text" required id="cant" id="tventa"
+							name="tventa" disabled="disabled">
+					</div>
+				</div>
+
+				<div class="container">
+				<div class="row justify-content-end">
+						<div class="col-4">
+							Total Venta + IVA <input type="text" required id="cant"
+								id="tventa" name="tventa" disabled="disabled">
+						</div>
+						<button type="button" class="btn btn-primary"
+						onclick="enviar()">
+						<i class="fas fa-dollar-sign"></i> Confirmar
+					</button>
+					</div>
+				</div>
+
+			</form>
+=======
 				
 				<div class="input-group">
 				<label for="total_venta" class="input-group-text2 ms-12">Total Venta </label>
@@ -200,6 +233,7 @@
 			<!-- 					</button> -->
 			<!-- 				</div> -->
 			<!-- 			</div> -->
+>>>>>>> Andres2
 		</div>
 
 	</div>
@@ -216,8 +250,9 @@
 
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			var user = document.getElementById("idsearch").value;
-			req.open('GET', 'http://localhost:8080/consultacliente?cli='+ user, false);
+			var user = document.getElementById("usersearch").value;
+			req.open('GET', 'http://localhost:8080/consultarusuario?usuario='
+					+ user, false);
 			req.send(null);
 			var usuario = null;
 			if (req.status == 200)
@@ -226,16 +261,31 @@
 
 			var element = document.getElementById("error");
 			element.classList.add("visually-hidden");
+			var element2 = document.getElementById("correcto");
+			element2.classList.remove("visually-hidden");
 
 			console.log(usuario.toString());
 
 			if (usuario.toString() != "") {
-				document.getElementById("nombre_cliente").value = usuario[0].nombre_cliente;
-			} else {
 
-			    alert("Error el documento " + user +  " solicitado no esta registrado como cliente");
-				document.getElementById("idsearch").value = "";	
-				document.getElementById("nombre_cliente").value = "";
+				document.getElementById("cedula_usuario").value = usuario[0].cedula_usuario;
+				document.getElementById("email_usuario").value = usuario[0].email_usuario;
+				document.getElementById("nombre_usuario").value = usuario[0].nombre_usuario;
+				document.getElementById("password").value = usuario[0].password;
+				document.getElementById("user").value = usuario[0].usuario;
+
+				document.getElementById("usersearch").value = "";
+
+			} else {
+				var element = document.getElementById("error");
+				element.classList.remove("visually-hidden");
+				var element2 = document.getElementById("correcto");
+				element2.classList.add("visually-hidden");
+				document.getElementById("cedula_usuario").value = "";
+				document.getElementById("email_usuario").value = "";
+				document.getElementById("nombre_usuario").value = "";
+				document.getElementById("password").value = "";
+				document.getElementById("user").value = "";
 			}
 		}
 	</script>
