@@ -91,7 +91,7 @@
 						disabled="disabled"> <span class="input-group-text1 ms-5"
 						id="basic-addon3">Consec.</span> <input type="text"
 						class="form-control" aria-describedby="basic-addon3" required
-						id="nombre_usuario" disabled="disabled">
+						id="concecutivo" disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
@@ -100,7 +100,7 @@
 						aria-describedby="basic-addon4" required id="codigo_producto">
 
 					<button type="button" class="btn btn-primary ms-2"
-						onclick="enviar()">
+						onclick="enviar1()">
 						<i class="fas fa-search"></i> Consultar
 					</button>
 
@@ -108,12 +108,12 @@
 						Producto </span> <input type="text" class="form-control"
 						aria-describedby="basic-addon5" required id="nombre_producto"
 						disabled="disabled"> <span class="input-group-text1 ms-2"
-						id="basic-addon6">Cant. </span> <input type="text"
+						id="basic-addon6">Cant. </span> <input type="text" onchange="pr()"
 						class="form-control" aria-describedby="basic-addon6" required
-						id="cant"> <span class="input-group-text1 ms-2"
+						id="cant" > <span class="input-group-text1 ms-2"
 						id="basic-addon7">Vlr. Total </span> <input type="text"
 						class="form-control" aria-describedby="basic-addon7" required
-						id="valor_total" disabled="disabled">
+						id="valor_total"  disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
@@ -122,7 +122,7 @@
 						aria-describedby="basic-addon4" required id="codigo_producto">
 
 					<button type="button" class="btn btn-primary ms-2"
-						onclick="enviar()">
+						onclick="enviar1()">
 						<i class="fas fa-search"></i> Consultar
 					</button>
 
@@ -130,7 +130,7 @@
 						Producto </label> <input type="text" class="form-control"
 						aria-describedby="basic-addon5" required id="nombre_producto"
 						disabled="disabled"> <span class="input-group-text1 ms-2"
-						id="basic-addon6">Cant. </span> <input type="text"
+						id="basic-addon6">Cant. </span> <input type="text" onchange="pr()"
 						class="form-control" aria-describedby="basic-addon6" required
 						id="cant"> <span class="input-group-text1 ms-2"
 						id="basic-addon7">Vlr. Total </span> <input type="text"
@@ -152,7 +152,7 @@
 						Producto </span> <input type="text" class="form-control"
 						aria-describedby="basic-addon5" required id="nombre_producto"
 						disabled="disabled"> <span class="input-group-text1 ms-2"
-						id="basic-addon6">Cant. </span> <input type="text"
+						id="basic-addon6">Cant. </span> <input type="text" 
 						class="form-control" aria-describedby="basic-addon6" required
 						id="cant"> <span class="input-group-text1 ms-2"
 						id="basic-addon7">Vlr. Total </span> <input type="text"
@@ -211,34 +211,7 @@
 			</div>
 		</div>
 	</nav>
-	<script>
-		function enviar() {
-
-			var req = new XMLHttpRequest();
-			var coincidencia = false;
-			var user = document.getElementById("idsearch").value;
-			req.open('GET', 'http://localhost:8080/consultacliente?cli='+ user, false);
-			req.send(null);
-			var usuario = null;
-			if (req.status == 200)
-				usuario = JSON.parse(req.responseText);
-			console.log(JSON.parse(req.responseText));
-
-			var element = document.getElementById("error");
-			element.classList.add("visually-hidden");
-
-			console.log(usuario.toString());
-
-			if (usuario.toString() != "") {
-				document.getElementById("nombre_cliente").value = usuario[0].nombre_cliente;
-			} else {
-
-			    alert("Error el documento " + user +  " solicitado no esta registrado como cliente");
-				document.getElementById("idsearch").value = "";	
-				document.getElementById("nombre_cliente").value = "";
-			}
-		}
-	</script>
+	<script src="js/cliente.js"></script>
 
 </body>
 </html>
