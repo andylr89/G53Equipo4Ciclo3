@@ -94,7 +94,7 @@
 						disabled="disabled"> <span class="input-group-text1 ms-5"
 						id="basic-addon3">Consec.</span> <input type="text"
 						class="form-control" aria-describedby="basic-addon3" required
-						id="nombre_usuario" disabled="disabled">
+						id="concecutivo" disabled="disabled">
 				</div>
 				
 				<div class="input-group mb-3">
@@ -225,50 +225,7 @@
 			</div>
 		</div>
 	</nav>
-	<script>
-		function enviar() {
-
-			var req = new XMLHttpRequest();
-			var coincidencia = false;
-			var user = document.getElementById("usersearch").value;
-			req.open('GET', 'http://localhost:8080/consultarusuario?usuario='
-					+ user, false);
-			req.send(null);
-			var usuario = null;
-			if (req.status == 200)
-				usuario = JSON.parse(req.responseText);
-			console.log(JSON.parse(req.responseText));
-
-			var element = document.getElementById("error");
-			element.classList.add("visually-hidden");
-			var element2 = document.getElementById("correcto");
-			element2.classList.remove("visually-hidden");
-
-			console.log(usuario.toString());
-
-			if (usuario.toString() != "") {
-
-				document.getElementById("cedula_usuario").value = usuario[0].cedula_usuario;
-				document.getElementById("email_usuario").value = usuario[0].email_usuario;
-				document.getElementById("nombre_usuario").value = usuario[0].nombre_usuario;
-				document.getElementById("password").value = usuario[0].password;
-				document.getElementById("user").value = usuario[0].usuario;
-
-				document.getElementById("usersearch").value = "";
-
-			} else {
-				var element = document.getElementById("error");
-				element.classList.remove("visually-hidden");
-				var element2 = document.getElementById("correcto");
-				element2.classList.add("visually-hidden");
-				document.getElementById("cedula_usuario").value = "";
-				document.getElementById("email_usuario").value = "";
-				document.getElementById("nombre_usuario").value = "";
-				document.getElementById("password").value = "";
-				document.getElementById("user").value = "";
-			}
-		}
-	</script>
+	<script src="js/cliente.js"></script>
 
 </body>
 </html>
