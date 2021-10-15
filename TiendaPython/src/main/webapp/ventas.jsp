@@ -81,7 +81,7 @@
 					<span class="input-group-text1" id="basic-addon1">Cedula</span><br>
 					<input type="text" class="form-control"
 						placeholder="Inserte Cedula" aria-describedby="basic-addon1"
-						required id="idsearch">
+						required id="user_search">
 
 					<button type="button" class="btn btn-primary ms-2"
 						onclick="enviar()">
@@ -96,6 +96,27 @@
 						class="form-control" aria-describedby="basic-addon3" required
 						id="nombre_usuario" disabled="disabled">
 				</div>
+				
+				<div class="input-group mb-3">
+
+					<span class="input-group-text1" id="basic-addon1">Usuario</span><br>
+					<input type="text" class="form-control"
+						placeholder="Inserte Cedula" aria-describedby="basic-addon1"
+						required id="user_search">
+
+					<button type="button" class="btn btn-primary ms-2"
+						onclick="enviar()">
+						<i class="fas fa-search"></i> Consultar
+					</button>
+
+					<span class="input-group-text1 ms-5" id="basic-addon2">
+						Cliente </span> <input type="text" class="form-control"
+						aria-describedby="basic-addon2" required id="nombre_cliente"
+						disabled="disabled">
+						
+						</div>
+				
+				
 
 				<div class="input-group mb-3">
 					<label for="CodProd" class="input-group-text" id="basic-addon4">Cod.
@@ -162,7 +183,7 @@
 						class="form-control" aria-describedby="basic-addon7" required
 						id="valor_total" disabled="disabled">
 				</div>
-<<<<<<< HEAD
+<!-- HEAD -->
 
 				<div class="row justify-content-end">
 					<div class="col-4">
@@ -191,49 +212,8 @@
 				</div>
 
 			</form>
-=======
-				
-				<div class="input-group">
-				<label for="total_venta" class="input-group-text2 ms-12">Total Venta </label>
-				<input type="text" class="form-control ms-2" aria-describedby="basic-addon8"
-				id="tventa" name="t_venta" disabled="disabled">
-				
-				</div>
-				
-				
 
-			</form>
-
-			<br> <br> <br> <br> <br>
-
-			<!-- 			<h1> -->
-			<!-- 				<i class="fas fa-cogs"></i> Operaciones -->
-			<!-- 			</h1> -->
-			<!-- 			<div class="container"> -->
-			<!-- 				<div class="row"> -->
-			<!-- 					<button type="button" class="btn btn-success" -->
-			<!-- 						onclick="window.location.href='/insertarusuario.jsp'"> -->
-			<!-- 						<i class="fas fa-plus-circle"></i> Agregar usuario -->
-			<!-- 					</button> -->
-			<!-- 					<button type="button" class="btn btn-danger" -->
-			<!-- 						onclick="window.location.href='/eliminarusuario.jsp'"> -->
-			<!-- 						<i class="fas fa-trash"></i> Eliminar usuario -->
-			<!-- 					</button> -->
-			<!-- 					<button type="button" class="btn btn-warning" -->
-			<!-- 						onclick="window.location.href='/actualizarusuario.jsp'"> -->
-			<!-- 						<i class="fas fa-pen-alt"></i> Actualizar usuario -->
-			<!-- 					</button> -->
-			<!-- 					<button type="button" class="btn btn-primary" -->
-			<!-- 						onclick="window.location.href='/buscarusuario.jsp'"> -->
-			<!-- 						<i class="fas fa-search"></i> Buscar un usuario -->
-			<!-- 					</button> -->
-			<!-- 					<button type="button" class="btn btn-primary" -->
-			<!-- 						onclick="window.location.href='/listausuarios.jsp'"> -->
-			<!-- 						<i class="fas fa-search"></i> Listar todos los usuarios -->
-			<!-- 					</button> -->
-			<!-- 				</div> -->
-			<!-- 			</div> -->
->>>>>>> Andres2
+<!-- Andres2 -->
 		</div>
 
 	</div>
