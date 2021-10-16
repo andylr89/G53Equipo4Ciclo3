@@ -27,7 +27,18 @@
 <!-- Cargando mi hoja de estilo -->
 <link href="style.css" rel="stylesheet" type="text/css" />
 
-
+<script>
+	window.onload = function() {
+		var req = new XMLHttpRequest();
+		req.open('GET', 'http://localhost:8080/contadorventa', false);
+		req.send(null);
+		var cont = null;
+		if (req.status == 200)
+			cont = JSON.parse(req.responseText);
+		console.log(cont.toString());
+		document.getElementById("consecutivo").value = cont;
+	};
+</script>
 
 </head>
 
@@ -93,16 +104,15 @@
 						aria-describedby="basic-addon2" required id="nombre_cliente"
 						disabled="disabled"> <span class="input-group-text1 ms-5"
 						id="basic-addon3">Consec.</span> <input type="text"
-						class="form-control" aria-describedby="basic-addon3" required
-						id="concecutivo" disabled="disabled">
+						class="form-control" readonly="readonly" id="concecutivo">
 				</div>
-				
+
 				<div class="input-group mb-3">
 
 					<span class="input-group-text1" id="basic-addon1">Usuario</span><br>
 					<input type="text" class="form-control"
-						placeholder="Inserte Cedula" aria-describedby="basic-addon1"
-						required id="user_search">
+						placeholder="Inserte nombre de Usuario"
+						aria-describedby="basic-addon1" required id="user_search">
 
 					<button type="button" class="btn btn-primary ms-2"
 						onclick="enviar()">
@@ -113,110 +123,113 @@
 						Cliente </span> <input type="text" class="form-control"
 						aria-describedby="basic-addon2" required id="nombre_cliente"
 						disabled="disabled">
-						
-						</div>
-				
-				
+
+				</div>
+
+				<!-- Producto 1 -->
 
 				<div class="input-group mb-3">
 					<label for="CodProd" class="input-group-text" id="basic-addon4">Cod.
 						Producto </label> <input type="text" class="form-control"
-						aria-describedby="basic-addon4" required id="codigo_producto">
+						aria-describedby="basic-addon4" required id="codigo_producto1">
 
 					<button type="button" class="btn btn-primary ms-2"
-						onclick="enviar()">
+						onclick="cargarProducto1()">
 						<i class="fas fa-search"></i> Consultar
 					</button>
 
-					<span class="input-group-text3 ms-2" id="basic-addon5">Nombre
+					<span class="input-group-text3 ms-4" id="basic-addon5">Nombre
 						Producto </span> <input type="text" class="form-control"
-						aria-describedby="basic-addon5" required id="nombre_producto"
-						disabled="disabled"> <span class="input-group-text1 ms-2"
-						id="basic-addon6">Cant. </span> <input type="text"
-						class="form-control" aria-describedby="basic-addon6" required
-						id="cant"> <span class="input-group-text1 ms-2"
+						id="nombre_producto1" readonly="readonly"> <span
+						class="input-group-text1 ms-2" id="basic-addon6">Cant. </span> <input
+						type="text" class="form-control" id="cant_producto1"
+						readonly="readonly"> <span class="input-group-text1 ms-2"
 						id="basic-addon7">Vlr. Total </span> <input type="text"
-						class="form-control" aria-describedby="basic-addon7" required
-						id="valor_total" disabled="disabled">
+						class="form-control" id="valor_total1" readonly="readonly">
 				</div>
 
-				<div class="input-group mb-3">
-					<label for="CodProd" class="input-group-text" id="basic-addon4">Cod.
-						Producto </label> <input type="text" class="form-control"
-						aria-describedby="basic-addon4" required id="codigo_producto">
-
-					<button type="button" class="btn btn-primary ms-2"
-						onclick="enviar()">
-						<i class="fas fa-search"></i> Consultar
-					</button>
-
-					<label class="input-group-text3 ms-2" id="basic-addon5">Nombre
-						Producto </label> <input type="text" class="form-control"
-						aria-describedby="basic-addon5" required id="nombre_producto"
-						disabled="disabled"> <span class="input-group-text1 ms-2"
-						id="basic-addon6">Cant. </span> <input type="text"
-						class="form-control" aria-describedby="basic-addon6" required
-						id="cant"> <span class="input-group-text1 ms-2"
-						id="basic-addon7">Vlr. Total </span> <input type="text"
-						class="form-control" aria-describedby="basic-addon7" required
-						id="valor_total" disabled="disabled">
-				</div>
+				<!-- Producto 2 -->
 
 				<div class="input-group mb-3">
-					<label for="CodProd" class="input-group-text" id="basic-addon4">Cod.
-						Producto </label> <input type="text" class="form-control"
-						aria-describedby="basic-addon4" required id="codigo_producto">
-
-					<button type="button" class="btn btn-primary ms-2"
-						onclick="enviar()">
-						<i class="fas fa-search"></i> Consultar
-					</button>
-
-					<span class="input-group-text3 ms-2" id="basic-addon5">Nombre
+					<span class="input-group-text" id="basic-addon4">Cod.
 						Producto </span> <input type="text" class="form-control"
-						aria-describedby="basic-addon5" required id="nombre_producto"
-						disabled="disabled"> <span class="input-group-text1 ms-2"
-						id="basic-addon6">Cant. </span> <input type="text"
-						class="form-control" aria-describedby="basic-addon6" required
-						id="cant"> <span class="input-group-text1 ms-2"
-						id="basic-addon7">Vlr. Total </span> <input type="text"
-						class="form-control" aria-describedby="basic-addon7" required
-						id="valor_total" disabled="disabled">
-				</div>
-<!-- HEAD -->
+						id="codigo_producto2">
 
-				<div class="row justify-content-end">
-					<div class="col-4">
-						Total Venta <input type="text" required id="cant" id="tventa"
-							name="tventa" disabled="disabled">
-					</div>
-				</div>
-				<div class="row justify-content-end">
-					<div class="col-4">
-						Total IVA <input type="text" required id="cant" id="tventa"
-							name="tventa" disabled="disabled">
-					</div>
-				</div>
-
-				<div class="container">
-				<div class="row justify-content-end">
-						<div class="col-4">
-							Total Venta + IVA <input type="text" required id="cant"
-								id="tventa" name="tventa" disabled="disabled">
-						</div>
-						<button type="button" class="btn btn-primary"
-						onclick="enviar()">
-						<i class="fas fa-dollar-sign"></i> Confirmar
+					<button type="button" class="btn btn-primary ms-2"
+						onclick="cargarProducto2()">
+						<i class="fas fa-search"></i> Consultar
 					</button>
+
+					<span class="input-group-text3 ms-4" id="basic-addon5">Nombre
+						Producto </span> <input type="text" class="form-control"
+						id="nombre_producto2" readonly="readonly"> <span
+						class="input-group-text1 ms-2" id="basic-addon6">Cant. </span> <input
+						type="text" class="form-control" id="cant_producto2"
+						readonly="readonly"> <span class="input-group-text1 ms-2"
+						id="basic-addon7">Vlr. Total </span> <input type="text"
+						class="form-control" id="valor_total" readonly="readonly">
+				</div>
+
+				<!-- Producto 3 -->
+
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon4">Cod.
+						Producto </span> <input type="text" class="form-control"
+						id="codigo_producto3">
+
+					<button type="button" class="btn btn-primary ms-2"
+						onclick="cargarProducto3()">
+						<i class="fas fa-search"></i> Consultar
+					</button>
+
+					<span class="input-group-text3 ms-4" id="basic-addon5">Nombre
+						Producto </span> <input type="text" class="form-control"
+						id="nombre_producto" readonly="readonly"> <span
+						class="input-group-text1 ms-2" id="basic-addon6">Cant. </span> <input
+						type="text" class="form-control" id="cant_producto3"
+						readonly="readonly"> <span class="input-group-text1 ms-2"
+						id="basic-addon7">Vlr. Total </span> <input type="text"
+						class="form-control" id="valor_total3" readonly="readonly">
+				</div>
+				<!-- HEAD -->
+
+				<div class="row justify-content-end mt-3">
+					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
+						<span class="total_venta"> Total Venta</span> <input type="text"
+							class="form-control" id="tventa" readonly="readonly">
 					</div>
 				</div>
+
+				<div class="row justify-content-end mt-3">
+					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
+						<span class="total_iva me-8">Total IVA </span><input type="text"
+							class="form-control" id="tventa" readonly="readonly">
+					</div>
+
+				</div>
+
+				<div class="row justify-content-end mt-3">
+					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
+						<span class="total_iva">Total Venta + IVA </span> <input type="text"
+							class="form-control" id="tventa" disabled="disabled">
+					</div>
+				</div>
+
+				<div class="row justify-content-end mt-3">
+					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
+						<div class="row align-items-end">
+							<button type="button" class="btn btn-primary" onclick="Registrar()">
+								<i class="fas fa-dollar-sign"></i> Confirmar
+							</button>
+						</div>
+					</div>
+				</div>
+
 
 			</form>
-
-<!-- Andres2 -->
 		</div>
-
 	</div>
+	
 	<nav class="navbar fixed-bottom navbar-dark bg-dark">
 		<div class="row justify-content-between">
 			<div class="col-4">
@@ -225,7 +238,304 @@
 			</div>
 		</div>
 	</nav>
-	<script src="js/cliente.js"></script>
+	
+	
+	<script>
+function traerNombreCliente() {
+			var client = document.getElementById("cedula_cliente").value;
+			var req = new XMLHttpRequest();
+			var coincidencia = false;
+			req.open('GET', 'http://localhost:8080/consultarcliente?cedula='
+					+ client, false);
+			req.send(null);
+			var cliente = null;
+			if (req.status == 200)
+				cliente = JSON.parse(req.responseText);
+			console.log(cliente);
+
+			var icono = document.getElementById("checkcliente");
+			if (cliente.toString() != "") {
+
+				document.getElementById("nombre_cliente").value = cliente[0].nombre_cliente;
+
+				icono.classList.replace("text-danger", "text-success");
+				icono.classList.replace("fa-times", "fa-check");
+
+			} else {
+				document.getElementById("nombre_cliente").value = "";
+				icono.classList.replace("text-success", "text-danger");
+				icono.classList.replace("fa-check", "fa-times");
+			}
+		}
+		function traerNombreUsuario() {
+			var user = document.getElementById("cedula_usuario").value;
+			var req = new XMLHttpRequest();
+			var coincidencia = false;
+			req.open('GET', 'http://localhost:8080/consultarusuario?usuario='
+					+ user, false);
+			req.send(null);
+			var usuario = null;
+			if (req.status == 200)
+				usuario = JSON.parse(req.responseText);
+			console.log(usuario);
+
+			var icono2 = document.getElementById("checkusuario");
+			if (usuario.toString() != "") {
+
+				document.getElementById("nombre_usuario").value = usuario[0].nombre_usuario;
+
+				icono2.classList.replace("text-danger", "text-success");
+				icono2.classList.replace("fa-times", "fa-check");
+
+			} else {
+				document.getElementById("nombre_usuario").value = "";
+				icono2.classList.replace("text-success", "text-danger");
+				icono2.classList.replace("fa-check", "fa-times");
+			}
+		}
+		var precio1 = 0.0;
+
+		function cargarProducto1() {
+			var prod1 = document.getElementById("codigo_producto1").value;
+			var req = new XMLHttpRequest();
+			var coincidencia = false;
+			req.open('GET', 'http://localhost:8080/consultarproducto?code='
+					+ prod1, false);
+			req.send(null);
+			var producto1 = null;
+			if (req.status == 200)
+				producto1 = JSON.parse(req.responseText);
+
+			var icono = document.getElementById("checkitem1");
+			if (producto1.toString() != "") {
+
+				console.log(producto1);
+				document.getElementById("nombre_producto1").value = producto1[0].nombre_producto;
+				precio1 = parseFloat(producto1[0].precio_venta);
+				console.log("Precio1: " + precio1)
+				icono.classList.replace("text-danger", "text-success");
+				icono.classList.replace("fa-times", "fa-check");
+
+			} else {
+				document.getElementById("nombre_producto1").value = "";
+				icono.classList.replace("text-success", "text-danger");
+				icono.classList.replace("fa-check", "fa-times");
+			}
+			}
+			var precio2 = 0.0;
+
+		function cargarProducto2() {
+			var prod2 = document.getElementById("codigo_producto2").value;
+			var req = new XMLHttpRequest();
+			var coincidencia = false;
+			req.open('GET', 'http://localhost:8080/consultarproducto?code='
+					+ prod2, false);
+			req.send(null);
+			var producto2 = null;
+			if (req.status == 200)
+				producto2 = JSON.parse(req.responseText);
+			var icono = document.getElementById("checkitem2");
+			if (producto2.toString() != "") {
+
+				console.log(producto2);
+				document.getElementById("nombre_producto2").value = producto2[0].nombre_producto;
+				precio1 = parseFloat(producto2[0].precio_venta);
+				console.log("Precio2: " + precio2)
+				icono.classList.replace("text-danger", "text-success");
+				icono.classList.replace("fa-times", "fa-check");
+
+			} else {
+				document.getElementById("nombre_producto2").value = "";
+				icono.classList.replace("text-success", "text-danger");
+				icono.classList.replace("fa-check", "fa-times");
+			}
+		}
+		var precio3 = 0.0;
+
+		function cargarProducto3() {
+			var prod3 = document.getElementById("codigo_producto3").value;
+			var req = new XMLHttpRequest();
+			var coincidencia = false;
+			req.open('GET', 'http://localhost:8080/consultarproducto?code='
+					+ prod3, false);
+			req.send(null);
+			var producto3 = null;
+			if (req.status == 200)
+				producto3 = JSON.parse(req.responseText);
+			var icono = document.getElementById("checkitem3");
+			if (producto3.toString() != "") {
+
+				console.log(producto3);
+				document.getElementById("nombre_producto3").value = producto3[0].nombre_producto;
+				precio1 = parseFloat(producto3[0].precio_venta);
+				console.log("Precio3: " + precio3)
+				icono.classList.replace("text-danger", "text-success");
+				icono.classList.replace("fa-times", "fa-check");
+
+			} else {
+				document.getElementById("nombre_producto3").value = "";
+				icono.classList.replace("text-success", "text-danger");
+				icono.classList.replace("fa-check", "fa-times");
+			}
+		}
+		function calcularPrecio1() {
+			var cantidad = document.getElementById("cant1").value;
+			var valortotal = 0.0;
+			if (cantidad == "" || cantidad == null) {
+				document.getElementById("valtotal1").value = 0;
+			} else {
+				valortotal = parseFloat(cantidad) * precio1;
+				console.log("Valor 1: " + valortotal);
+				document.getElementById("valtotal1").value = valortotal;
+			}
+			calcularFinales();
+			}
+			
+			function calcularPrecio2() {
+			var cantidad = document.getElementById("cant2").value;
+			var valortotal = 0.0;
+			if (cantidad == "" || cantidad == null) {
+				document.getElementById("valtotal2").value = 0;
+			} else {
+				valortotal = parseFloat(cantidad) * precio2;
+				console.log("Valor 2: " + valortotal);
+				document.getElementById("valtotal2").value = valortotal;
+			}
+			calcularFinales();
+			function calcularPrecio3() {
+			var cantidad = document.getElementById("cant3").value;
+			var valortotal = 0.0;
+			if (cantidad == "" || cantidad == null) {
+				document.getElementById("valtotal3").value = 0;
+			} else {
+				valortotal = parseFloat(cantidad) * precio3;
+				console.log("Valor 3: " + valortotal);
+				document.getElementById("valtotal3").value = valortotal;
+			}
+			calcularFinales();
+
+		}
+		function calcularPrecio3() {
+			var cantidad = document.getElementById("cant3").value;
+			var valortotal = 0.0;
+			if (cantidad == "" || cantidad == null) {
+				document.getElementById("valtotal3").value = 0;
+			} else {
+				valortotal = parseFloat(cantidad) * precio3;
+				console.log("Valor 3: " + valortotal);
+				document.getElementById("valtotal3").value = valortotal;
+			}
+			calcularFinales();
+
+		}
+		function calcularFinales() {
+			var val1 = document.getElementById("valtotal1").value;
+			var val2 = document.getElementById("valtotal2").value;
+			var val3 = document.getElementById("valtotal3").value;
+			totalventa = parseFloat(val1) + parseFloat(val2) + parseFloat(val3);
+			document.getElementById("total_venta").value = totalventa;
+			
+			var iva = totalventa * 0.19;
+			document.getElementById("total_iva").value = iva;
+				document.getElementById("total_venta_iva").value = iva + totalventa;
+		}
+		
+		function registrar() {
+			try {
+
+				formData = new FormData();
+				formData.append("codigo_venta", document
+						.getElementById("consecutivo").value);
+				formData.append("cedula_cliente", document
+						.getElementById("cedula_cliente").value);
+				formData.append("cedula_usuario", document
+						.getElementById("cedula_usuario").value);
+				formData.append("ivaventa", document
+						.getElementById("total_iva").value);
+				formData.append("total_venta", document
+						.getElementById("total_venta").value);
+				formData.append("valor_venta", document
+						.getElementById("total_venta_iva").value);
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST", "http://localhost:8080/registrarventa");
+				xhr.send(formData);
+
+				setTimeout(
+						function() {
+							for (i = 1; i < 4; i++) {
+								var actual = document
+										.getElementById(("valtotal" + i
+												.toString()).value);
+								if (actual == 0) {
+									continue;
+								} else {
+									var formData2 = new FormData();
+									//formData2.append("codigo_detalle_venta", );
+									formData2.append("cantidad_producto",
+											document.getElementById("cant"
+													+ i.toString()).value);
+									formData2
+											.append(
+													"codigo_producto",
+													document
+															.getElementById("codigo_producto"
+																	+ i
+																			.toString()).value);
+									formData2
+											.append(
+													"codigo_venta",
+													document
+															.getElementById("consecutivo").value);
+									formData2.append("valor_total", document
+											.getElementById("valtotal"
+													+ i.toString()).value);
+									formData2
+											.append(
+													"valor_venta",
+													document
+															.getElementById("total_venta").value);
+									formData2
+											.append(
+													"valoriva",
+													document
+															.getElementById("total_venta_iva").value);
+									var xhr2 = new XMLHttpRequest();
+									xhr2
+											.open("POST",
+													"http://localhost:8080/registrardetalleventa");
+									xhr2.send(formData2);
+								}
+
+							}
+							var element = document.getElementById("error");
+							element.classList.add("visually-hidden");
+							var element2 = document.getElementById("correcto");
+							element2.classList.remove("visually-hidden");
+						}, 1500);
+
+			} catch (error) {
+				var element = document.getElementById("error");
+				element.classList.remove("visually-hidden");
+				var element2 = document.getElementById("correcto");
+				element2.classList.add("visually-hidden");
+			}
+			}
+
+
+
+
+
+	<nav class="navbar fixed-bottom navbar-dark bg-dark">
+		<div class="row justify-content-between">
+			<div class="col-4">
+				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
+					Grupo 4 <i class="fas fa-code-branch"></i></a>
+			</div>
+		</div>
+	</nav>
+</script>
+
+<!-- <script src="js/cliente.js"></script> -->
 
 </body>
 </html>
