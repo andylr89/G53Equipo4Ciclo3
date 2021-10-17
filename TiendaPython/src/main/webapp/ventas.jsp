@@ -26,9 +26,8 @@
 
 <!-- Cargando mi hoja de estilo -->
 <link href="style.css" rel="stylesheet" type="text/css" />
-
-
-
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 
 
@@ -61,203 +60,194 @@
 	</nav>
 
 	<div>
-		<h2>
-			<i class="fas fa-search"></i> Realizar un Registro
-		</h2>
+		<div class="container text-center">
+			<h3>
+				<span class="glyphicon glyphicon-shopping-cart"> Registrar
+					Venta</span>
+			</h3>
+		</div>
+		<br>
+
+
 		<div class="container">
+			<div class="row">
+				<div class="col-sm-3 pull-right">
+					<div class="input-group">
+						<span class="input-group-addon">Consecutivo:</span> <input
+							id="consecutivo" type="text" class="form-control"
+							name="Consecutivo" disabled>
+					</div>
+					<hr
+					style="height: 2px; border-width: 2; color: gray; background-color: blue">
+				</div>
+				<br>
+				<br>
+				
+				<form>
+					<div class="col col-md-6">
+						<div class="input-group">
+							<span class="input-group-addon">Cedula:</span> <input
+								id="cliente_search" type="text" class="form-control"
+								onchange="enviar()" name="cedula" placeholder="Cedula Cliente"
+								required>
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon">Nombre:</span> <input
+								id="nombre_cliente" type="text" class="form-control"
+								name="Nombre" disabled>
+						</div>
+						<hr
+					style="height: 2px; border-width: 2; color: gray; background-color: blue">
+					</div>
 
-
-			<div id="error" class="alert alert-danger visually-hidden"
-				role="alert">Error registro solicitado no existe</div>
-
-			<div id="correcto" class="alert alert-success visually-hidden"
-				role="alert">Registro encontrado con exito</div>
-
-			<form id="form1">
+					<div class="col col-md-6">
+						<div class="input-group">
+							<span class="input-group-addon">Usuario:</span> <input
+								id="cedula_usuario" type="text" class="form-control"
+								onchange="traerNombreUsuario()" name="cedula"
+								placeholder="Cedula Usuario" required>
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon">Nombre:</span> <input
+								id="nombre_usuario" type="text" class="form-control"
+								name="Nombre" disabled>
+						</div>
+						<hr
+						style="width: 94%; height: 2px; border-width: 2; color: gray; background-color: yellow">
+					</div>
+						
+				</form>
+				<br>
+				<br>
 				<br>
 
-				<div class="input-group mb-3">
 
-					<span class="input-group-text1" id="basic-addon1">Cedula</span><br>
-					<input type="text" class="form-control"
-						placeholder="Inserte Cedula" aria-describedby="basic-addon1"
-						required id="idsearch">
-
-					<button type="button" class="btn btn-primary ms-2"
-						onclick="enviar()">
-						<i class="fas fa-search"></i> Consultar
-					</button>
-
-					<span class="input-group-text1 ms-5" id="basic-addon2">
-						Cliente </span> <input type="text" class="form-control"
-						aria-describedby="basic-addon2" required id="nombre_cliente"
-						disabled="disabled"> <span class="input-group-text1 ms-5"
-						id="basic-addon3">Consec.</span> <input type="text"
-						class="form-control" aria-describedby="basic-addon3" required
-						id="nombre_usuario" disabled="disabled">
-				</div>
+				<!-- Producto 1 -->
 
 				<div class="input-group mb-3">
 					<label for="CodProd" class="input-group-text" id="basic-addon4">Cod.
 						Producto </label> <input type="text" class="form-control"
-						aria-describedby="basic-addon4" required id="codigo_producto">
+						aria-describedby="basic-addon4" required id="codigo_producto1">
 
 					<button type="button" class="btn btn-primary ms-2"
-						onclick="enviar()">
+						onclick="producto1()">
 						<i class="fas fa-search"></i> Consultar
 					</button>
 
-					<span class="input-group-text3 ms-2" id="basic-addon5">Nombre
+					<span class="input-group-text3 ms-4" id="basic-addon5">Nombre
 						Producto </span> <input type="text" class="form-control"
-						aria-describedby="basic-addon5" required id="nombre_producto"
-						disabled="disabled"> <span class="input-group-text1 ms-2"
-						id="basic-addon6">Cant. </span> <input type="text"
-						class="form-control" aria-describedby="basic-addon6" required
-						id="cant"> <span class="input-group-text1 ms-2"
+						id="nombre_producto1" readonly="readonly"> <span
+						class="input-group-text1 ms-2" id="basic-addon6">Cant. </span> <input
+						type="text" class="form-control" id="cant_producto"
+						onchange="pr()"> <span class="input-group-text1 ms-2"
 						id="basic-addon7">Vlr. Total </span> <input type="text"
-						class="form-control" aria-describedby="basic-addon7" required
-						id="valor_total" disabled="disabled">
+						class="form-control" id="valor_total" readonly="readonly">
 				</div>
 
-				<div class="input-group mb-3">
-					<label for="CodProd" class="input-group-text" id="basic-addon4">Cod.
-						Producto </label> <input type="text" class="form-control"
-						aria-describedby="basic-addon4" required id="codigo_producto">
-
-					<button type="button" class="btn btn-primary ms-2"
-						onclick="enviar()">
-						<i class="fas fa-search"></i> Consultar
-					</button>
-
-					<label class="input-group-text3 ms-2" id="basic-addon5">Nombre
-						Producto </label> <input type="text" class="form-control"
-						aria-describedby="basic-addon5" required id="nombre_producto"
-						disabled="disabled"> <span class="input-group-text1 ms-2"
-						id="basic-addon6">Cant. </span> <input type="text"
-						class="form-control" aria-describedby="basic-addon6" required
-						id="cant"> <span class="input-group-text1 ms-2"
-						id="basic-addon7">Vlr. Total </span> <input type="text"
-						class="form-control" aria-describedby="basic-addon7" required
-						id="valor_total" disabled="disabled">
-				</div>
+				<!-- Producto 2 -->
 
 				<div class="input-group mb-3">
-					<label for="CodProd" class="input-group-text" id="basic-addon4">Cod.
-						Producto </label> <input type="text" class="form-control"
-						aria-describedby="basic-addon4" required id="codigo_producto">
-
-					<button type="button" class="btn btn-primary ms-2"
-						onclick="enviar()">
-						<i class="fas fa-search"></i> Consultar
-					</button>
-
-					<span class="input-group-text3 ms-2" id="basic-addon5">Nombre
+					<span class="input-group-text" id="basic-addon4">Cod.
 						Producto </span> <input type="text" class="form-control"
-						aria-describedby="basic-addon5" required id="nombre_producto"
-						disabled="disabled"> <span class="input-group-text1 ms-2"
-						id="basic-addon6">Cant. </span> <input type="text"
-						class="form-control" aria-describedby="basic-addon6" required
-						id="cant"> <span class="input-group-text1 ms-2"
+						id="codigo_producto2">
+
+					<button type="button" class="btn btn-primary ms-2"
+						onclick="cargarProducto2()">
+						<i class="fas fa-search"></i> Consultar
+					</button>
+
+					<span class="input-group-text3 ms-4" id="basic-addon5">Nombre
+						Producto </span> <input type="text" class="form-control"
+						id="nombre_producto1" readonly="readonly"> <span
+						class="input-group-text1 ms-2" id="basic-addon6">Cant. </span> <input
+						type="text" class="form-control" id="cant_producto"
+						onchange="pr()"> <span class="input-group-text1 ms-2"
 						id="basic-addon7">Vlr. Total </span> <input type="text"
-						class="form-control" aria-describedby="basic-addon7" required
-						id="valor_total" disabled="disabled">
+						class="form-control" id="valor_total" readonly="readonly">
 				</div>
-				
-				<div class="input-group">
-				<label for="total_venta" class="input-group-text2 ms-12">Total Venta </label>
-				<input type="text" class="form-control ms-2" aria-describedby="basic-addon8"
-				id="tventa" name="t_venta" disabled="disabled">
-				
+
+				<!-- Producto 3 -->
+
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon4">Cod.
+						Producto </span> <input type="text" class="form-control"
+						id="codigo_producto3">
+
+					<button type="button" class="btn btn-primary ms-2"
+						onclick="cargarProducto3()">
+						<i class="fas fa-search"></i> Consultar
+					</button>
+
+					<span class="input-group-text3 ms-4" id="basic-addon5">Nombre
+						Producto </span> <input type="text" class="form-control"
+						id="nombre_producto1" readonly="readonly"> <span
+						class="input-group-text1 ms-2" id="basic-addon6">Cant. </span> <input
+						type="text" class="form-control" id="cant_producto"
+						onchange="pr()"> <span class="input-group-text1 ms-2"
+						id="basic-addon7">Vlr. Total </span> <input type="text"
+						class="form-control" id="valor_total" readonly="readonly">
 				</div>
-				
-				
+				<!-- HEAD -->
 
-			</form>
+				<div class="row justify-content-end mt-3">
+					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
+						<span class="total_venta"> Total Venta</span> <input type="text"
+							class="form-control" id="tventa" readonly="readonly">
+					</div>
+				</div>
 
-			<br> <br> <br> <br> <br>
+				<div class="row justify-content-end mt-3">
+					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
+						<span class="total_iva me-8">Total IVA </span><input type="text"
+							class="form-control" id="tventa" readonly="readonly">
+					</div>
 
-			<!-- 			<h1> -->
-			<!-- 				<i class="fas fa-cogs"></i> Operaciones -->
-			<!-- 			</h1> -->
-			<!-- 			<div class="container"> -->
-			<!-- 				<div class="row"> -->
-			<!-- 					<button type="button" class="btn btn-success" -->
-			<!-- 						onclick="window.location.href='/insertarusuario.jsp'"> -->
-			<!-- 						<i class="fas fa-plus-circle"></i> Agregar usuario -->
-			<!-- 					</button> -->
-			<!-- 					<button type="button" class="btn btn-danger" -->
-			<!-- 						onclick="window.location.href='/eliminarusuario.jsp'"> -->
-			<!-- 						<i class="fas fa-trash"></i> Eliminar usuario -->
-			<!-- 					</button> -->
-			<!-- 					<button type="button" class="btn btn-warning" -->
-			<!-- 						onclick="window.location.href='/actualizarusuario.jsp'"> -->
-			<!-- 						<i class="fas fa-pen-alt"></i> Actualizar usuario -->
-			<!-- 					</button> -->
-			<!-- 					<button type="button" class="btn btn-primary" -->
-			<!-- 						onclick="window.location.href='/buscarusuario.jsp'"> -->
-			<!-- 						<i class="fas fa-search"></i> Buscar un usuario -->
-			<!-- 					</button> -->
-			<!-- 					<button type="button" class="btn btn-primary" -->
-			<!-- 						onclick="window.location.href='/listausuarios.jsp'"> -->
-			<!-- 						<i class="fas fa-search"></i> Listar todos los usuarios -->
-			<!-- 					</button> -->
-			<!-- 				</div> -->
-			<!-- 			</div> -->
-		</div>
+				</div>
 
-	</div>
-	<nav class="navbar fixed-bottom navbar-dark bg-dark">
-		<div class="row justify-content-between">
-			<div class="col-4">
-				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Grupo 4 <i class="fas fa-code-branch"></i></a>
+				<div class="row justify-content-end mt-3">
+					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
+						<span class="total_iva">Total Venta + IVA </span> <input
+							type="text" class="form-control" id="tventa" disabled="disabled">
+					</div>
+				</div>
+
+				<div class="row justify-content-end mt-3">
+					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
+						<div class="row align-items-end">
+							<button type="button" class="btn btn-primary"
+								onclick="Registrar()">
+								<i class="fas fa-dollar-sign"></i> Confirmar
+							</button>
+						</div>
+					</div>
+				</div>
+
+
+				</form>
 			</div>
 		</div>
-	</nav>
-	<script>
-		function enviar() {
 
-			var req = new XMLHttpRequest();
-			var coincidencia = false;
-			var user = document.getElementById("usersearch").value;
-			req.open('GET', 'http://localhost:8080/consultarusuario?usuario='
-					+ user, false);
-			req.send(null);
-			var usuario = null;
-			if (req.status == 200)
-				usuario = JSON.parse(req.responseText);
-			console.log(JSON.parse(req.responseText));
+		<nav class="navbar fixed-bottom navbar-dark bg-dark">
+			<div class="row justify-content-between">
+				<div class="col-4">
+					<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
+						Grupo 4 <i class="fas fa-code-branch"></i></a>
+				</div>
+			</div>
+		</nav>
 
-			var element = document.getElementById("error");
-			element.classList.add("visually-hidden");
-			var element2 = document.getElementById("correcto");
-			element2.classList.remove("visually-hidden");
+		<script src="js/cliente.js"></script>
 
-			console.log(usuario.toString());
+		<nav class="navbar fixed-bottom navbar-dark bg-dark">
+			<div class="row justify-content-between">
+				<div class="col-4">
+					<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
+						Grupo 4 <i class="fas fa-code-branch"></i></a>
+				</div>
+			</div>
+		</nav>
+		</script>
 
-			if (usuario.toString() != "") {
-
-				document.getElementById("cedula_usuario").value = usuario[0].cedula_usuario;
-				document.getElementById("email_usuario").value = usuario[0].email_usuario;
-				document.getElementById("nombre_usuario").value = usuario[0].nombre_usuario;
-				document.getElementById("password").value = usuario[0].password;
-				document.getElementById("user").value = usuario[0].usuario;
-
-				document.getElementById("usersearch").value = "";
-
-			} else {
-				var element = document.getElementById("error");
-				element.classList.remove("visually-hidden");
-				var element2 = document.getElementById("correcto");
-				element2.classList.add("visually-hidden");
-				document.getElementById("cedula_usuario").value = "";
-				document.getElementById("email_usuario").value = "";
-				document.getElementById("nombre_usuario").value = "";
-				document.getElementById("password").value = "";
-				document.getElementById("user").value = "";
-			}
-		}
-	</script>
-
+		<!-- <script src="js/cliente.js"></script> -->
 </body>
 </html>

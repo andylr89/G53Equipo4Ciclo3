@@ -1,8 +1,7 @@
-body {
+body, html {
 	background: url(fondo_tienda.png);
 	height: 100%;
-	width: 100%; background-color : #ffffff;
-	height: 680px;
+	width: 100%;
 	background-position: 100%;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -36,6 +35,11 @@ h3, h4 {
 	letter-spacing: 10px;
 	font-size: 20px;
 	color: #111;
+}
+h5{
+	text-align: center;
+	font-weight:bold;
+	font-family: SegoeUi; 
 }
 
 .input-group-text1, select {
@@ -137,4 +141,8 @@ footer a:hover {
 .thumbnail p {
 	margin-top: 15px;
 	color: #555;
+}
+
+.btn1{
+	width:500px;
 }
