@@ -51,7 +51,7 @@
 				class="fas fa-apple-alt"></i> Productos
 			</a> <a class="navbar-brand links" href="ventas.jsp"> <i
 				class="fas fa-money-check-alt"></i> Ventas
-			</a> <a class="navbar-brand links" href="reportes.jsp"> <i
+			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
 				class="fas fa-clipboard-list"></i> Reportes
 			</a>
 		</div>
@@ -172,47 +172,44 @@
 						class="form-control" id="valor_total" readonly="readonly">
 				</div>
 				<!-- HEAD -->
-				
-				<div class="row justify-content-end mt-3">
-					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
-						<span class="total_venta" style="font-weight:bold"> Total Venta</span> <input type="text"
-							class="form-control" id="tventa" readonly="readonly">
-					</div>
-				</div>
-			
 
 				<div class="row justify-content-end mt-3">
 					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
-						<span class="total_iva me-8" style="font-weight:bold">Total IVA </span><input type="text"
+						<span class="total_venta"> Total Venta</span> <input type="text"
+							class="form-control" id="tventa" readonly="readonly">
+					</div>
+				</div>
+
+				<div class="row justify-content-end mt-3">
+					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
+						<span class="total_iva me-8">Total IVA </span><input type="text"
 							class="form-control" id="tventa" readonly="readonly">
 					</div>
 
 				</div>
 
+				<div class="row justify-content-end mt-3">
+					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
+						<span class="total_iva">Total Venta + IVA </span> <input type="text"
+							class="form-control" id="tventa" disabled="disabled">
+					</div>
+				</div>
 
-					<div class="row justify-content-end mt-3">
-						<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
-							<span class="total_iva" style="font-weight:bold">Total Venta + IVA </span> <input
-								type="text" class="form-control" id="tventa" disabled="disabled">
+				<div class="row justify-content-end mt-3">
+					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
+						<div class="row align-items-end">
+							<button type="button" class="btn btn-primary" onclick="Registrar()">
+								<i class="fas fa-dollar-sign"></i> Confirmar
+							</button>
 						</div>
 					</div>
+				</div>
 
-					<div class="row justify-content-end mt-3">
-						<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
-							<div class="row align-items-end">
-								<button type="button" class="btn btn-primary"
-									onclick="Registrar()">
-									<i class="fas fa-dollar-sign"></i> Confirmar
-								</button>
-							</div>
-						</div>
-					</div>
-				
 
 			</form>
 		</div>
 	</div>
-
+	
 	<nav class="navbar fixed-bottom navbar-dark bg-dark">
 		<div class="row justify-content-between">
 			<div class="col-4">
@@ -221,9 +218,14 @@
 			</div>
 		</div>
 	</nav>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 
 
+=======
+	
+	
+>>>>>>> parent of 460e436 (Reportes)
 	<script>
 function traerNombreCliente() {
 			var client = document.getElementById("cedula_cliente").value;
@@ -523,7 +525,7 @@ function traerNombreCliente() {
 	</nav>
 </script>
 
-	<!-- <script src="js/cliente.js"></script> -->
+<!-- <script src="js/cliente.js"></script> -->
 
 </body>
 </html>
