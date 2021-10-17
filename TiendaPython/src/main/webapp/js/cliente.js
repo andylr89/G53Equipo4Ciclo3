@@ -7,7 +7,7 @@ function loadconce() {
 		if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 			var clientes = JSON.parse(xmlhttp.responseText);
 			for (i = 0; i < clientes.length; i++) {
-				document.getElementById("concecutivo").value = clientes[i].codigo_venta;
+				document.getElementById("consecutivo").value = clientes[i].codigo_venta;
 			}
 		}
 	};
@@ -21,16 +21,13 @@ window.onload = function() {
 function enviar() {
 
 	var req = new XMLHttpRequest();
-	var user = document.getElementById("idsearch").value;
+	var user = document.getElementById("cliente_search").value;
 	req.open('GET', 'http://localhost:8080/consultacliente?cli=' + user, false);
 	req.send(null);
 	var usuario = null;
 	if (req.status == 200)
 		usuario = JSON.parse(req.responseText);
 	console.log(JSON.parse(req.responseText));
-
-	var element = document.getElementById("error");
-	element.classList.add("visually-hidden");
 
 	console.log(usuario.toString());
 
@@ -39,15 +36,37 @@ function enviar() {
 	} else {
 
 		alert("Error el documento " + user + " solicitado no esta registrado como cliente");
-		document.getElementById("idsearch").value = "";
+		document.getElementById("cliente_search").value = "";
+	}
+}
+
+/*Trae Usuario */
+
+function traerNombreUsuario() {
+	var user = document.getElementById("cedula_usuario").value;
+	var req = new XMLHttpRequest();
+	req.open('GET', 'http://localhost:8080/consultarusuario?usuario='
+		+ user, false);
+	req.send(null);
+	var usuario = null;
+	if (req.status == 200)
+		usuario = JSON.parse(req.responseText);
+	console.log(usuario);
+	if (usuario.toString() != "") {
+
+		document.getElementById("nombre_usuario").value = usuario[0].nombre_usuario;
+
+	} else {
+		alert("Error el documento " + user + " solicitado no esta registrado como Usuario");
+		document.getElementById("cedula_usuario").value = "";
 	}
 }
 
 /** Carga Informacion Producto */
-function enviar1() {
+function producto1() {
 
 	var req = new XMLHttpRequest();
-	var pro = document.getElementById("codigo_producto").value;
+	var pro = document.getElementById("codigo_producto1").value;
 	req.open('GET', 'http://localhost:8080/consultarproducto?product=' + pro, false);
 	req.send(null);
 	var usuario = null;
@@ -55,30 +74,27 @@ function enviar1() {
 		usuario = JSON.parse(req.responseText);
 	console.log(JSON.parse(req.responseText));
 
-	var element = document.getElementById("error");
-	element.classList.add("visually-hidden");
-
 	console.log(usuario.toString());
 
 	if (usuario.toString() != "") {
-		document.getElementById("nombre_producto").value = usuario[0].nombre_producto;
+		document.getElementById("nombre_producto1").value = usuario[0].nombre_producto;
 		m1 = usuario[0].precio_venta;
 	} else {
 
 		alert("Error el documento " + pro + " solicitado no esta registrado como Producto");
-		document.getElementById("codigo_producto").value = "";
+		document.getElementById("codigo_producto1").value = "";
 	}
 }
 
 /*Multiplica */
 function multiplicar() {
-	m2 = document.getElementById("cant").value;
+	m2 = document.getElementById("cant_producto").value;
 	r = m1 * m2;
 	document.getElementById("valor_total").value = r;
 }
 
 function pr() {
-	if (document.getElementById("cant").value != "") {
+	if (document.getElementById("cant_producto").value != "") {
 		multiplicar()
 	}
 }
