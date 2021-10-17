@@ -26,6 +26,20 @@
 
 <!-- Cargando mi hoja de estilo -->
 <link href="style.css" rel="stylesheet" type="text/css" />
+
+<script>
+	window.onload = function() {
+		var req = new XMLHttpRequest();
+		req.open('GET', 'http://localhost:8080/contadorventa', false);
+		req.send(null);
+		var cont = null;
+		if (req.status == 200)
+			cont = JSON.parse(req.responseText);
+		console.log(cont.toString());
+		document.getElementById("consecutivo").value = cont;
+	};
+</script>
+
 </head>
 
 
@@ -64,6 +78,12 @@
 		<div class="container">
 
 
+			<div id="error" class="alert alert-danger visually-hidden"
+				role="alert">Error registro solicitado no existe</div>
+
+			<div id="correcto" class="alert alert-success visually-hidden"
+				role="alert">Registro encontrado con exito</div>
+
 			<form id="form1">
 				<br>
 
@@ -84,7 +104,7 @@
 						aria-describedby="basic-addon2" required id="nombre_cliente"
 						disabled="disabled"> <span class="input-group-text1 ms-5"
 						id="basic-addon3">Consec.</span> <input type="text"
-						class="form-control" readonly="readonly" id="consecutivo">
+						class="form-control" readonly="readonly" id="concecutivo">
 				</div>
 
 				<div class="input-group mb-3">
@@ -92,40 +112,40 @@
 					<span class="input-group-text1" id="basic-addon1">Usuario</span><br>
 					<input type="text" class="form-control"
 						placeholder="Inserte nombre de Usuario"
-						aria-describedby="basic-addon1" required id="cedula_usuario">
+						aria-describedby="basic-addon1" required id="user_search">
 
 					<button type="button" class="btn btn-primary ms-2"
-						onclick="traerNombreUsuario()">
+						onclick="enviar()">
 						<i class="fas fa-search"></i> Consultar
 					</button>
 
 					<span class="input-group-text1 ms-5" id="basic-addon2">
-						Usuario: </span> <input type="text" class="form-control"
-						aria-describedby="basic-addon2" required id="nombre_usuario"
+						Cliente </span> <input type="text" class="form-control"
+						aria-describedby="basic-addon2" required id="nombre_cliente"
 						disabled="disabled">
 
-				</div><hr></i><hr>
+				</div>
 
 				<!-- Producto 1 -->
 
 				<div class="input-group mb-3">
 					<label for="CodProd" class="input-group-text" id="basic-addon4">Cod.
-						Producto </label> <input type="text" class="form-control" 
+						Producto </label> <input type="text" class="form-control"
 						aria-describedby="basic-addon4" required id="codigo_producto1">
 
 					<button type="button" class="btn btn-primary ms-2"
-						onclick="producto1()">
+						onclick="cargarProducto1()">
 						<i class="fas fa-search"></i> Consultar
 					</button>
 
 					<span class="input-group-text3 ms-4" id="basic-addon5">Nombre
 						Producto </span> <input type="text" class="form-control"
 						id="nombre_producto1" readonly="readonly"> <span
-						class="input-group-text1 ms-2" id="basic-addon6">Cant. </span>
-						<input type="text" class="form-control" id="cant_producto" onchange="pr()">
-						 <span class="input-group-text1 ms-2"
+						class="input-group-text1 ms-2" id="basic-addon6">Cant. </span> <input
+						type="text" class="form-control" id="cant_producto1"
+						readonly="readonly"> <span class="input-group-text1 ms-2"
 						id="basic-addon7">Vlr. Total </span> <input type="text"
-						class="form-control" id="valor_total" readonly="readonly">
+						class="form-control" id="valor_total1" readonly="readonly">
 				</div>
 
 				<!-- Producto 2 -->
@@ -142,10 +162,10 @@
 
 					<span class="input-group-text3 ms-4" id="basic-addon5">Nombre
 						Producto </span> <input type="text" class="form-control"
-						id="nombre_producto1" readonly="readonly"> <span
-						class="input-group-text1 ms-2" id="basic-addon6">Cant. </span>
-						<input type="text" class="form-control" id="cant_producto" onchange="pr()">
-						 <span class="input-group-text1 ms-2"
+						id="nombre_producto2" readonly="readonly"> <span
+						class="input-group-text1 ms-2" id="basic-addon6">Cant. </span> <input
+						type="text" class="form-control" id="cant_producto2"
+						readonly="readonly"> <span class="input-group-text1 ms-2"
 						id="basic-addon7">Vlr. Total </span> <input type="text"
 						class="form-control" id="valor_total" readonly="readonly">
 				</div>
@@ -164,12 +184,12 @@
 
 					<span class="input-group-text3 ms-4" id="basic-addon5">Nombre
 						Producto </span> <input type="text" class="form-control"
-						id="nombre_producto1" readonly="readonly"> <span
-						class="input-group-text1 ms-2" id="basic-addon6">Cant. </span>
-						<input type="text" class="form-control" id="cant_producto" onchange="pr()">
-						 <span class="input-group-text1 ms-2"
+						id="nombre_producto" readonly="readonly"> <span
+						class="input-group-text1 ms-2" id="basic-addon6">Cant. </span> <input
+						type="text" class="form-control" id="cant_producto3"
+						readonly="readonly"> <span class="input-group-text1 ms-2"
 						id="basic-addon7">Vlr. Total </span> <input type="text"
-						class="form-control" id="valor_total" readonly="readonly">
+						class="form-control" id="valor_total3" readonly="readonly">
 				</div>
 				<!-- HEAD -->
 				
@@ -221,7 +241,6 @@
 			</div>
 		</div>
 	</nav>
-<<<<<<< Updated upstream
 
 
 	<script>
@@ -508,10 +527,6 @@ function traerNombreCliente() {
 
 
 
-=======
-	
-	<script src="js/cliente.js"></script>
->>>>>>> Stashed changes
 
 	<nav class="navbar fixed-bottom navbar-dark bg-dark">
 		<div class="row justify-content-between">
