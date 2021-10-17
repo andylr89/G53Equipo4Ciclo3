@@ -10,7 +10,7 @@
 <!-- Tamaño de la pantalla -->
 <meta name="viewport" content="width=device-width">
 <!-- titulo de la pestaña -->
-<title>Insertando productos</title>
+<title>Reportes</title>
 <!-- bootstrap-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -29,35 +29,35 @@
 
 
 <script>
-		var baseurl = "http://localhost:8080/listarproductos";
-		function loadproductos() {
-			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.open("GET", baseurl, true);
-			xmlhttp.onreadystatechange = function() {
-				if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-					var productos = JSON.parse(xmlhttp.responseText);
-					var tbltop = "<table class='table table-dark table-striped'><tr><th>Codigo_Producto</th><th>IVA_Compra</th><th>NIT_Proveedor</th><th>Nombre_Producto</th><th>Precio_Compra</th><th>Precio_Venta</th></tr>";
-					var main = "";
-					for (i = 0; i < productos.lenght; i++) {
-						main += "<tr><td>" + productos[i].codigo_producto
-								+ "</td><td>" + productos[i].iva_compra
-								+ "</td><td>" + productos[i].nit_proveedor
-								+ "</td><td>" + productos[i].nombre_producto
-								+ "</td><td>" + productos[i].precio_compra
-								+ "</td><td>" + productos[i].precio_venta
-								+ "</td></tr>";
-					}
-					var tblbottom = "</table>";
-					var tbl = tbltop + main + tblbottom;
-					document.getElementById("productosinfo").innerHTML = tbl;
+	var baseurl = "http://localhost:8080/listarproductos";
+	function loadproductos() {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET", baseurl, true);
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+				var productos = JSON.parse(xmlhttp.responseText);
+				var tbltop = "<table class='table table-dark table-striped'><tr><th>Codigo_Producto</th><th>IVA_Compra</th><th>NIT_Proveedor</th><th>Nombre_Producto</th><th>Precio_Compra</th><th>Precio_Venta</th></tr>";
+				var main = "";
+				for (i = 0; i < productos.lenght; i++) {
+					main += "<tr><td>" + productos[i].codigo_producto
+							+ "</td><td>" + productos[i].iva_compra
+							+ "</td><td>" + productos[i].nit_proveedor
+							+ "</td><td>" + productos[i].nombre_producto
+							+ "</td><td>" + productos[i].precio_compra
+							+ "</td><td>" + productos[i].precio_venta
+							+ "</td></tr>";
 				}
-			};
-			xmlhttp.send();
-		}
-		window.onload = function() {
-			loadproductos();
-		}
-	</script>
+				var tblbottom = "</table>";
+				var tbl = tbltop + main + tblbottom;
+				document.getElementById("productosinfo").innerHTML = tbl;
+			}
+		};
+		xmlhttp.send();
+	}
+	window.onload = function() {
+		loadproductos();
+	}
+</script>
 
 
 </head>
@@ -83,43 +83,100 @@
 				class="fas fa-apple-alt"></i> Productos
 			</a> <a class="navbar-brand links" href="ventas.jsp"> <i
 				class="fas fa-money-check-alt"></i> Ventas
-			</a> <a class="navbar-brand links" href="reportes.jsp"> <i
+			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
 				class="fas fa-clipboard-list"></i> Reportes
 			</a>
 		</div>
 	</nav>
-
-	<div style="padding-left: 5px">
-		<h2>
-			<i class="fas fa-cart-plus"></i> Insertando archivo de productos
-		</h2>
-		<div class="container">
-
-
-			<div id="error" class="alert alert-danger visually-hidden"
-				role="alert">Archivo vacio, extensión no valida o datos
-				corruptos (El separador debe ser coma ",")</div>
-
-			<div id="correcto" class="alert alert-success visually-hidden"
-				role="alert">Productos importados desde CSV con exito</div>
-
-			<form id="form1">
-				<div>
-					<label for="formFileLg" class="form-label">Seleccionar
-						archivo CSV con el inventario de productos</label> <input
-						class="form-control form-control-lg" id="archivo" type="file"
-						accept=".csv"><br>
-					<button type="button" class="btn btn-success"
-						onclick="subirArchivo()">Subir archivo</button>
-				</div>
-
-			</form>
-
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+<h5> ESCOJA SU OPCIÓN:</h5>
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col align-items-start mt-5"></div>
+			<div class="col align-items-center ms-1">
+				<button type="button" class="btn1 btn-success" onclick="">
+				 <i class="fas fa-users"></i>    Listado de Usuarios
+				</button>
+			</div>
+			<div class="col align-items-end"></div>
 		</div>
-
+		
+		<div class="row">
+			<div class="col align-items-start mt-5"></div>
+			<div class="col align-items-center ms-2">
+				<button type="button" class="btn1 btn-success" onclick="">
+				 <i class="fas fa-clipboard-list"></i>    Listado de Clientes
+				</button>
+			</div>
+			<div class="col align-items-end"></div>
+		</div>
+		
+		<div class="row">
+			<div class="col align-items-start mt-5"></div>
+			<div class="col align-items-center ms-2">
+				<button type="button" class="btn1 btn-success" onclick="">
+				 <i class="fas fa-hand-holding-usd"></i>    Ventas por Cliente
+				</button>
+			</div>
+			<div class="col align-items-end"></div>
+		</div>
+		
+		
+		
+		
+		
 	</div>
-	
-	
+
+
+
+
+
+
+	<!-- 	<div class="container"> -->
+	<!-- 	<div class="row"> -->
+	<!-- 		<div class="row justify-content-center mt-3"> -->
+	<!-- 			<div class="col align-self-center"> -->
+	<!-- 								<div class="col-xl-8 col-lg-8 col-md-8 col-sm-8"> -->
+	<!-- 				<button type="button" class="btn btn-success" onclick=""> -->
+	<!-- 					<i class="fas fa-users"></i> Listado de Usuarios -->
+	<!-- 				</button> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+
+
+
+	<!-- 		<div class="row justify-content-center mt-3"> -->
+	<!-- 			<div class="col align-self-center"> -->
+	<!-- 									<div class="col-xl-8 col-lg-8 col-md-8 col-sm-8"> -->
+	<!-- 				<button type="button" class="btn btn-success" onclick=""> -->
+	<!-- 					<i class="fas fa-clipboard-list"></i> Listado de Clientes -->
+	<!-- 				</button> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+
+
+	<!-- 		<div class="row justify-content-center mt-3"> -->
+	<!-- 			<div class="col align-self-center"> -->
+	<!-- 									<div class="col-xl-8 col-lg-8 col-md-8 col-sm-8"> -->
+	<!-- 				<button type="button" class="btn btn-success" onclick=""> -->
+	<!-- 					<i class="fas fa-hand-holding-usd"></i> Ventas por Cliente -->
+	<!-- 				</button> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
+	<!-- 	</div> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
+
+
 	<nav class="navbar fixed-bottom navbar-dark bg-dark">
 		<div class="row justify-content-between">
 			<div class="col-4">
@@ -167,10 +224,10 @@
 						formData.append("nombre_producto", arraydatos[3]);
 						formData.append("precio_compra", arraydatos[4]);
 						formData.append("precio_venta", arraydatos[5]);
-						
-						
+
 						var xhr = new XMLHttpRequest();
-						xhr.open("POST","http://localhost:8080/registrarproducto");
+						xhr.open("POST",
+								"http://localhost:8080/registrarproducto");
 
 						xhr.send(formData);
 					}
