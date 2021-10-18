@@ -117,94 +117,94 @@
 					<div class="input-group">
 						<span class="input-group-addon">Cod Producto:</span> <input
 							id="codigo_producto1" type="text" class="form-control"
-							onchange="producto1()" name="codigo_producto"
-							placeholder="codigo_producto" required>
+							onchange="producto1()" name="codigo_producto1"
+							placeholder="codigo_producto1" required>
 					</div>
 				</div>
 				<div class="col col-md-4">
 					<div class="input-group">
 						<span class="input-group-addon">Nombre Producto:</span> <input
 							id="nombre_producto1" type="text" class="form-control"
-							name="codigo_producto1" disabled>
+							name="nombre_producto1" disabled>
 					</div>
 				</div>
 
 				<div class="col col-md-2">
 					<div class="input-group">
 						<span class="input-group-addon">Cantidad:</span> <input
-							id="cant_producto" type="text" class="form-control"
-							onchange="producto1()" name="cedula" placeholder="Cant." required>
+							id="cant_producto1" type="text" class="form-control"
+							onchange="pr1()" name="cedula" placeholder="Cant." required>
 					</div>
 				</div>
 				<div class="col col-md-3">
 					<div class="input-group">
 						<span class="input-group-addon">Vlr. Total:</span> <input
-							id="valor_total" type="text" class="form-control"
-							name="valor_total" disabled>
+							id="valor_total1" type="text" class="form-control"
+							name="valor_total1" disabled>
 					</div>
 				</div>
-				<!-- Productos -->
+				<!-- Productos2 -->
 
 				<div class="col col-md-3">
 					<div class="input-group">
 						<span class="input-group-addon">Cod Producto:</span> <input
-							id="codigo_producto1" type="text" class="form-control"
-							onchange="enviar()" name="codigo_producto"
-							placeholder="codigo_producto" required>
+							id="codigo_producto2" type="text" class="form-control"
+							onchange="producto2()" name="codigo_producto2"
+							placeholder="codigo_producto2" required>
 					</div>
 				</div>
 				<div class="col col-md-4">
 					<div class="input-group">
 						<span class="input-group-addon">Nombre Producto:</span> <input
-							id="nombre_producto1" type="text" class="form-control"
-							name="codigo_producto1" disabled>
+							id="nombre_producto2" type="text" class="form-control"
+							name="nombre_producto2" disabled>
 					</div>
 				</div>
 
 				<div class="col col-md-2">
 					<div class="input-group">
 						<span class="input-group-addon">Cantidad:</span> <input
-							id="cant_producto" type="text" class="form-control"
-							onchange="producto1()" name="cedula" placeholder="Cant." required>
+							id="cant_producto2" type="text" class="form-control"
+							onchange="pr2()" name="cedula" placeholder="Cant." required>
 					</div>
 				</div>
 				<div class="col col-md-3">
 					<div class="input-group">
 						<span class="input-group-addon">Vlr. Total:</span> <input
-							id="valor_total" type="text" class="form-control"
-							name="valor_total" disabled>
+							id="valor_total2" type="text" class="form-control"
+							name="valor_total2" disabled>
 					</div>
 				</div>
-				<!-- Productos -->
+				<!-- Productos3 -->
 
 				<div class="col col-md-3">
 					<div class="input-group">
 						<span class="input-group-addon">Cod Producto:</span> <input
-							id="codigo_producto1" type="text" class="form-control"
-							onchange="enviar()" name="codigo_producto"
-							placeholder="codigo_producto" required>
+							id="codigo_producto3" type="text" class="form-control"
+							onchange="producto3()" name="codigo_producto3"
+							placeholder="codigo_producto3" required>
 					</div>
 				</div>
 				<div class="col col-md-4">
 					<div class="input-group">
 						<span class="input-group-addon">Nombre Producto:</span> <input
-							id="nombre_producto1" type="text" class="form-control"
-							name="codigo_producto1" disabled>
+							id="nombre_producto3" type="text" class="form-control"
+							name="nombre_producto3" disabled>
 					</div>
 				</div>
 
 				<div class="col col-md-2">
 					<div class="input-group">
 						<span class="input-group-addon">Cantidad:</span> <input
-							id="cant_producto" type="text" class="form-control"
-							onchange="producto1()" name="cedula" placeholder="Cant." required>
+							id="cant_producto3" type="text" class="form-control"
+							onchange="pr3()" name="cedula" placeholder="Cant." required>
 					</div>
 				</div>
 				<div class="col col-md-3">
 					<div class="input-group">
 						<span class="input-group-addon">Vlr. Total:</span> <input
-							id="valor_total" type="text" class="form-control"
-							name="valor_total" disabled>
+							id="valor_total3" type="text" class="form-control"
+							name="valor_total3" disabled>
 					</div>
 					<hr
 				style="height: 2px; border-width: 2; color: gray; background-color: blue">
@@ -217,7 +217,7 @@
 					<div class="col-sm-3">
 						<div class="input-group">
 							<span class="input-group-addon">Total Venta:</span> <input
-								id="tventa" type="text" class="form-control" name="tventa"
+								id="tventa" type="text" class="form-control" name="tventa" onchange="tiva()"
 								disabled>
 						</div>
 					</div>
