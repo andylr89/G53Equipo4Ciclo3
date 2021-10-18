@@ -36,11 +36,6 @@ h3, h4 {
 	font-size: 20px;
 	color: #111;
 }
-h5{
-	text-align: center;
-	font-weight:bold;
-	font-family: SegoeUi; 
-}
 
 .input-group-text1, select {
 	width: 6%;
@@ -141,8 +136,4 @@ footer a:hover {
 .thumbnail p {
 	margin-top: 15px;
 	color: #555;
-}
-
-.btn1{
-	width:500px;
 }
