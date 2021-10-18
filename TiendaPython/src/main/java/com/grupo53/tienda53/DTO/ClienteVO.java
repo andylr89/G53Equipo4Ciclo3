@@ -5,6 +5,10 @@ import java.io.Serializable;
 public class ClienteVO implements Serializable {
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer cedula_cliente;
 	private String direccion_cliente;
 	private String email_cliente;

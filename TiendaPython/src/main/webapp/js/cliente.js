@@ -199,6 +199,56 @@ function tiva() {
 	document.getElementById("ttotal").value = tventaiva;
 }
 
+function registrar() {
+	try {
+
+		formData = new FormData();
+		formData.append("codigo_venta", document.getElementById("consecutivo").value);
+		formData.append("cedula_cliente", document.getElementById("cliente_search").value);
+		formData.append("cedula_usuario", document.getElementById("cedula_usuario").value);
+		formData.append("ivaventa", document.getElementById("tiva").value);
+		formData.append("total_venta", document.getElementById("tventa").value);
+		formData.append("valor_venta", document.getElementById("ttotal").value);
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "http://localhost:8080/registrarventa");
+		xhr.send(formData);
+
+		setTimeout(
+			function() {
+				for (i = 1; i < 4; i++) {
+					var actual = document.getElementById(("tventa" + i.toString()).value);
+					if (actual == 0) {
+						continue;
+					} else {
+						var formData2 = new FormData();
+						//formData2.append("codigo_detalle_venta", );
+						formData2.append("cantidad_producto", document.getElementById("cant" + i.toString()).value);
+						formData2.append("codigo_producto", document.getElementById("codigo_producto" + i.toString()).value);
+						formData2.append("codigo_venta", document.getElementById("consecutivo").value);
+						formData2.append("valor_total", document.getElementById("valtotal" + i.toString()).value);
+						formData2.append("valor_venta", document.getElementById("total_venta").value);
+						formData2.append("valoriva", document.getElementById("total_venta_iva").value);
+						var xhr2 = new XMLHttpRequest();
+						xhr2.open("POST", "http://localhost:8080/registrardetalleventa");
+						xhr2.send(formData2);
+					}
+
+				}
+				var element = document.getElementById("error");
+				element.classList.add("visually-hidden");
+				var element2 = document.getElementById("correcto");
+				element2.classList.remove("visually-hidden");
+			}, 1500);
+
+	} catch (error) {
+		var element = document.getElementById("error");
+		element.classList.remove("visually-hidden");
+		var element2 = document.getElementById("correcto");
+		element2.classList.add("visually-hidden");
+	}
+
+}
+
 
 
 
