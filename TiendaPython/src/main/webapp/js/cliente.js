@@ -6,6 +6,7 @@ var r1 = 0;
 var r2 = 0;
 var r3 = 0;
 
+var encabe = 0;
 /** LLeva el concecutivo */
 var baseurl = "http://localhost:8080/listarconcecutivo";
 function loadconce() {
@@ -198,6 +199,84 @@ function tiva() {
 	tventaiva = tvta + tiv;
 	document.getElementById("ttotal").value = tventaiva;
 }
+
+
+function registrar() {
+	try {
+
+		formData = new FormData();
+		formData.append("codigo_venta", document.getElementById("consecutivo").value);
+		formData.append("cedula_cliente", document.getElementById("cliente_search").value);
+		formData.append("cedula_usuario", document.getElementById("cedula_usuario").value);
+		formData.append("ivaventa", document.getElementById("tiva").value);
+		formData.append("total_venta", document.getElementById("tventa").value);
+		formData.append("valor_venta", document.getElementById("ttotal").value);
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "http://localhost:8080/registrarventa");
+		xhr.send(formData);
+
+	} catch (error) {
+		alert("Error al guardar la Factura ")
+		encabe = 1;
+	}
+
+}
+
+function detalle() {
+	if (encabe != 1) {
+		var prod1 = document.getElementById("codigo_producto1").value;
+		if (prod1 != null) {
+
+			var formData2 = new FormData();
+			//formData2.append("codigo_detalle_venta", );
+			formData2.append("cantidad_producto", document.getElementById("cant_producto1").value);
+			formData2.append("codigo_producto", document.getElementById("codigo_producto1").value);
+			formData2.append("codigo_venta", document.getElementById("consecutivo").value);
+			formData2.append("valor_total", document.getElementById("ttotal").value);
+			formData2.append("valor_venta", document.getElementById("tventa").value);
+			formData2.append("valoriva", document.getElementById("tiva").value);
+			var xhr2 = new XMLHttpRequest();
+			xhr2.open("POST", "http://localhost:8080/registrardetalleventa");
+			xhr2.send(formData2);
+		}
+
+		prod1 = null;
+		var prod2 = document.getElementById("codigo_producto2").value;
+		if (prod2 != null) {
+
+			var formData2 = new FormData();
+			//formData2.append("codigo_detalle_venta", );
+			formData2.append("cantidad_producto", document.getElementById("cant_producto2").value);
+			formData2.append("codigo_producto", document.getElementById("codigo_producto2").value);
+			formData2.append("codigo_venta", document.getElementById("consecutivo").value);
+			formData2.append("valor_total", document.getElementById("ttotal").value);
+			formData2.append("valor_venta", document.getElementById("tventa").value);
+			formData2.append("valoriva", document.getElementById("tiva").value);
+			var xhr2 = new XMLHttpRequest();
+			xhr2.open("POST", "http://localhost:8080/registrardetalleventa");
+			xhr2.send(formData2);
+
+		}
+		prod2 = null;
+		var prod3 = document.getElementById("codigo_producto3").value;
+		if (prod3 != null) {
+
+			var formData2 = new FormData();
+			//formData2.append("codigo_detalle_venta", );
+			formData2.append("cantidad_producto", document.getElementById("cant_producto3").value);
+			formData2.append("codigo_producto", document.getElementById("codigo_producto3").value);
+			formData2.append("codigo_venta", document.getElementById("consecutivo").value);
+			formData2.append("valor_total", document.getElementById("ttotal").value);
+			formData2.append("valor_venta", document.getElementById("tventa").value);
+			formData2.append("valoriva", document.getElementById("tiva").value);
+			var xhr2 = new XMLHttpRequest();
+			xhr2.open("POST", "http://localhost:8080/registrardetalleventa");
+			xhr2.send(formData2);
+
+		}
+	}
+}
+
 
 
 
