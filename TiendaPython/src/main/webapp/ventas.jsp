@@ -53,7 +53,7 @@
 				class="fas fa-apple-alt"></i> Productos
 			</a> <a class="navbar-brand links" href="ventas.jsp"> <i
 				class="fas fa-money-check-alt"></i> Ventas
-			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
+			</a> <a class="navbar-brand links" href="reportes.jsp"> <i
 				class="fas fa-clipboard-list"></i> Reportes
 			</a>
 		</div>
@@ -222,11 +222,9 @@
 					</div>
 				</div>
 
-
-				</form>
 			</div>
 		</div>
-
+		<br><br>
 		<nav class="navbar fixed-bottom navbar-dark bg-dark">
 			<div class="row justify-content-between">
 				<div class="col-4">
@@ -238,16 +236,5 @@
 
 		<script src="js/cliente.js"></script>
 
-		<nav class="navbar fixed-bottom navbar-dark bg-dark">
-			<div class="row justify-content-between">
-				<div class="col-4">
-					<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-						Grupo 4 <i class="fas fa-code-branch"></i></a>
-				</div>
-			</div>
-		</nav>
-		</script>
-
-		<!-- <script src="js/cliente.js"></script> -->
 </body>
 </html>

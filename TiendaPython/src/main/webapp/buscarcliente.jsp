@@ -159,7 +159,7 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado y programado por Grupo 4 <i
+					Grupo 4 <i
 					class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
