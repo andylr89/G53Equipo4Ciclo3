@@ -3,8 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-
 <!-- paquete de caracteres -->
 <meta charset="utf-8">
 <!-- Tamaño de la pantalla -->
@@ -59,160 +57,194 @@
 		</div>
 	</nav>
 
-	<div>
-		<div class="container text-center">
-			<h3>
-				<span class="glyphicon glyphicon-shopping-cart"> Registrar
-					Venta</span>
-			</h3>
-		</div>
-		<br>
+	<div class="container text-center">
+		<h3>
+			<span class="glyphicon glyphicon-shopping-cart"> Registrar
+				Venta</span>
+		</h3>
+	</div>
+	<br>
 
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3 pull-right">
+				<div class="input-group">
+					<span class="input-group-addon">Consecutivo:</span> <input
+						id="consecutivo" type="text" class="form-control"
+						name="Consecutivo" disabled>
+				</div>
+				<hr
+					style="height: 2px; border-width: 2; color: gray; background-color: blue">
+			</div>
+			<br> <br>
 
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-3 pull-right">
+			<form>
+				<div class="col col-md-6">
 					<div class="input-group">
-						<span class="input-group-addon">Consecutivo:</span> <input
-							id="consecutivo" type="text" class="form-control"
-							name="Consecutivo" disabled>
+						<span class="input-group-addon">Cedula:</span> <input
+							id="cliente_search" type="text" class="form-control"
+							onchange="enviar()" name="cedula" placeholder="Cedula Cliente"
+							required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon">Nombre:</span> <input
+							id="nombre_cliente" type="text" class="form-control"
+							name="Nombre" disabled>
 					</div>
 					<hr
-					style="height: 2px; border-width: 2; color: gray; background-color: blue">
+						style="height: 2px; border-width: 2; color: gray; background-color: blue">
 				</div>
-				<br>
-				<br>
+
+				<div class="col col-md-6">
+					<div class="input-group">
+						<span class="input-group-addon">Usuario:</span> <input
+							id="cedula_usuario" type="text" class="form-control"
+							onchange="traerNombreUsuario()" name="cedula"
+							placeholder="Cedula Usuario" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon">Nombre:</span> <input
+							id="nombre_usuario" type="text" class="form-control"
+							name="Nombre" disabled>
+					</div>
+					<hr
+						style="height: 2px; border-width: 2; color: gray; background-color: blue">
+				</div>
+
+				<!-- Productos -->
+
+				<div class="col col-md-3">
+					<div class="input-group">
+						<span class="input-group-addon">Cod Producto:</span> <input
+							id="codigo_producto1" type="text" class="form-control"
+							onchange="producto1()" name="codigo_producto"
+							placeholder="codigo_producto" required>
+					</div>
+				</div>
+				<div class="col col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">Nombre Producto:</span> <input
+							id="nombre_producto1" type="text" class="form-control"
+							name="codigo_producto1" disabled>
+					</div>
+				</div>
+
+				<div class="col col-md-2">
+					<div class="input-group">
+						<span class="input-group-addon">Cantidad:</span> <input
+							id="cant_producto" type="text" class="form-control"
+							onchange="producto1()" name="cedula" placeholder="Cant." required>
+					</div>
+				</div>
+				<div class="col col-md-3">
+					<div class="input-group">
+						<span class="input-group-addon">Vlr. Total:</span> <input
+							id="valor_total" type="text" class="form-control"
+							name="valor_total" disabled>
+					</div>
+				</div>
+				<!-- Productos -->
+
+				<div class="col col-md-3">
+					<div class="input-group">
+						<span class="input-group-addon">Cod Producto:</span> <input
+							id="codigo_producto1" type="text" class="form-control"
+							onchange="enviar()" name="codigo_producto"
+							placeholder="codigo_producto" required>
+					</div>
+				</div>
+				<div class="col col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">Nombre Producto:</span> <input
+							id="nombre_producto1" type="text" class="form-control"
+							name="codigo_producto1" disabled>
+					</div>
+				</div>
+
+				<div class="col col-md-2">
+					<div class="input-group">
+						<span class="input-group-addon">Cantidad:</span> <input
+							id="cant_producto" type="text" class="form-control"
+							onchange="producto1()" name="cedula" placeholder="Cant." required>
+					</div>
+				</div>
+				<div class="col col-md-3">
+					<div class="input-group">
+						<span class="input-group-addon">Vlr. Total:</span> <input
+							id="valor_total" type="text" class="form-control"
+							name="valor_total" disabled>
+					</div>
+				</div>
+				<!-- Productos -->
+
+				<div class="col col-md-3">
+					<div class="input-group">
+						<span class="input-group-addon">Cod Producto:</span> <input
+							id="codigo_producto1" type="text" class="form-control"
+							onchange="enviar()" name="codigo_producto"
+							placeholder="codigo_producto" required>
+					</div>
+				</div>
+				<div class="col col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">Nombre Producto:</span> <input
+							id="nombre_producto1" type="text" class="form-control"
+							name="codigo_producto1" disabled>
+					</div>
+				</div>
+
+				<div class="col col-md-2">
+					<div class="input-group">
+						<span class="input-group-addon">Cantidad:</span> <input
+							id="cant_producto" type="text" class="form-control"
+							onchange="producto1()" name="cedula" placeholder="Cant." required>
+					</div>
+				</div>
+				<div class="col col-md-3">
+					<div class="input-group">
+						<span class="input-group-addon">Vlr. Total:</span> <input
+							id="valor_total" type="text" class="form-control"
+							name="valor_total" disabled>
+					</div>
+					<hr
+				style="height: 2px; border-width: 2; color: gray; background-color: blue">
+				</div>
+			</form>
+			
+			<form>
+
+				<div class="row justify-content-end mt-3">
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">Total Venta:</span> <input
+								id="tventa" type="text" class="form-control" name="tventa"
+								disabled>
+						</div>
+					</div>
+				</div>
 				
-				<form>
-					<div class="col col-md-6">
-						<div class="input-group">
-							<span class="input-group-addon">Cedula:</span> <input
-								id="cliente_search" type="text" class="form-control"
-								onchange="enviar()" name="cedula" placeholder="Cedula Cliente"
-								required>
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon">Nombre:</span> <input
-								id="nombre_cliente" type="text" class="form-control"
-								name="Nombre" disabled>
-						</div>
-						<hr
-					style="height: 2px; border-width: 2; color: gray; background-color: blue">
-					</div>
-
-					<div class="col col-md-6">
-						<div class="input-group">
-							<span class="input-group-addon">Usuario:</span> <input
-								id="cedula_usuario" type="text" class="form-control"
-								onchange="traerNombreUsuario()" name="cedula"
-								placeholder="Cedula Usuario" required>
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon">Nombre:</span> <input
-								id="nombre_usuario" type="text" class="form-control"
-								name="Nombre" disabled>
-						</div>
-						<hr
-						style="width: 94%; height: 2px; border-width: 2; color: gray; background-color: yellow">
-					</div>
-						
-				</form>
-				<br>
-				<br>
-				<br>
-
-
-				<!-- Producto 1 -->
-
-				<div class="input-group mb-3">
-					<label for="CodProd" class="input-group-text" id="basic-addon4">Cod.
-						Producto </label> <input type="text" class="form-control"
-						aria-describedby="basic-addon4" required id="codigo_producto1">
-
-					<button type="button" class="btn btn-primary ms-2"
-						onclick="producto1()">
-						<i class="fas fa-search"></i> Consultar
-					</button>
-
-					<span class="input-group-text3 ms-4" id="basic-addon5">Nombre
-						Producto </span> <input type="text" class="form-control"
-						id="nombre_producto1" readonly="readonly"> <span
-						class="input-group-text1 ms-2" id="basic-addon6">Cant. </span> <input
-						type="text" class="form-control" id="cant_producto"
-						onchange="pr()"> <span class="input-group-text1 ms-2"
-						id="basic-addon7">Vlr. Total </span> <input type="text"
-						class="form-control" id="valor_total" readonly="readonly">
-				</div>
-
-				<!-- Producto 2 -->
-
-				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon4">Cod.
-						Producto </span> <input type="text" class="form-control"
-						id="codigo_producto2">
-
-					<button type="button" class="btn btn-primary ms-2"
-						onclick="cargarProducto2()">
-						<i class="fas fa-search"></i> Consultar
-					</button>
-
-					<span class="input-group-text3 ms-4" id="basic-addon5">Nombre
-						Producto </span> <input type="text" class="form-control"
-						id="nombre_producto1" readonly="readonly"> <span
-						class="input-group-text1 ms-2" id="basic-addon6">Cant. </span> <input
-						type="text" class="form-control" id="cant_producto"
-						onchange="pr()"> <span class="input-group-text1 ms-2"
-						id="basic-addon7">Vlr. Total </span> <input type="text"
-						class="form-control" id="valor_total" readonly="readonly">
-				</div>
-
-				<!-- Producto 3 -->
-
-				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon4">Cod.
-						Producto </span> <input type="text" class="form-control"
-						id="codigo_producto3">
-
-					<button type="button" class="btn btn-primary ms-2"
-						onclick="cargarProducto3()">
-						<i class="fas fa-search"></i> Consultar
-					</button>
-
-					<span class="input-group-text3 ms-4" id="basic-addon5">Nombre
-						Producto </span> <input type="text" class="form-control"
-						id="nombre_producto1" readonly="readonly"> <span
-						class="input-group-text1 ms-2" id="basic-addon6">Cant. </span> <input
-						type="text" class="form-control" id="cant_producto"
-						onchange="pr()"> <span class="input-group-text1 ms-2"
-						id="basic-addon7">Vlr. Total </span> <input type="text"
-						class="form-control" id="valor_total" readonly="readonly">
-				</div>
-				<!-- HEAD -->
-
 				<div class="row justify-content-end mt-3">
-					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
-						<span class="total_venta"> Total Venta</span> <input type="text"
-							class="form-control" id="tventa" readonly="readonly">
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">Total Iva:</span> <input
+								id="tiva" type="text" class="form-control" name="tventa"
+								disabled>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row justify-content-end mt-3">
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">Total Venta + IVA:</span> <input
+								id="ttotal" type="text" class="form-control" name="tventa"
+								disabled>
+						</div>
 					</div>
 				</div>
 
-				<div class="row justify-content-end mt-3">
-					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
-						<span class="total_iva me-8">Total IVA </span><input type="text"
-							class="form-control" id="tventa" readonly="readonly">
-					</div>
-
-				</div>
-
-				<div class="row justify-content-end mt-3">
-					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
-						<span class="total_iva">Total Venta + IVA </span> <input
-							type="text" class="form-control" id="tventa" disabled="disabled">
-					</div>
-				</div>
-
-				<div class="row justify-content-end mt-3">
-					<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">
+				<div class="row justify-content-center mt-3">
+					<div class="col-md-3">
 						<div class="row align-items-end">
 							<button type="button" class="btn btn-primary"
 								onclick="Registrar()">
@@ -221,33 +253,14 @@
 						</div>
 					</div>
 				</div>
-
-
-				</form>
-			</div>
+			</form>
 		</div>
-
-		<nav class="navbar fixed-bottom navbar-dark bg-dark">
-			<div class="row justify-content-between">
-				<div class="col-4">
-					<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-						Grupo 4 <i class="fas fa-code-branch"></i></a>
-				</div>
-			</div>
-		</nav>
-
-		<script src="js/cliente.js"></script>
-
-		<nav class="navbar fixed-bottom navbar-dark bg-dark">
-			<div class="row justify-content-between">
-				<div class="col-4">
-					<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-						Grupo 4 <i class="fas fa-code-branch"></i></a>
-				</div>
-			</div>
-		</nav>
-		</script>
-
-		<!-- <script src="js/cliente.js"></script> -->
+	</div><br><br>
+	<script src="js/cliente.js"></script>
+	<div class="footer">
+		<div class="col-4">
+			<i class="fas fa-code"></i> Grupo 4 <i class="fas fa-code-branch"></i>
+		</div>
+	</div>
 </body>
 </html>

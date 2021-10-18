@@ -1,12 +1,7 @@
-body, html {
-	background: url(fondo_tienda.png);
-	height: 100%;
-	width: 100%;
-	background-position: 100%;
-	background-repeat: no-repeat;
+body {
+	background: url(fondo_tienda.png) no-repeat center center;
+	min-height: 100%;
 	background-size: cover;
-	position: center;
-	background-color: #cccccc;
 }
 
 .main-section {
@@ -36,10 +31,11 @@ h3, h4 {
 	font-size: 20px;
 	color: #111;
 }
-h5{
+
+h5 {
 	text-align: center;
-	font-weight:bold;
-	font-family: SegoeUi; 
+	font-weight: bold;
+	font-family: SegoeUi;
 }
 
 .input-group-text1, select {
@@ -86,10 +82,10 @@ h5{
 	}
 }
 
-footer {
+.footer {
 	background-color: #2d2d30;
 	color: #f5f5f5;
-	padding: 32px;
+	padding: 10px;
 }
 
 footer a {
@@ -143,6 +139,6 @@ footer a:hover {
 	color: #555;
 }
 
-.btn1{
-	width:500px;
+.btn1 {
+	width: 500px;
 }

@@ -66,7 +66,7 @@ function traerNombreUsuario() {
 function producto1() {
 
 	var req = new XMLHttpRequest();
-	var pro = document.getElementById("codigo_producto1").value;
+	var pro = document.getElementById("codigo_producto").value;
 	req.open('GET', 'http://localhost:8080/consultarproducto?product=' + pro, false);
 	req.send(null);
 	var usuario = null;
@@ -82,7 +82,7 @@ function producto1() {
 	} else {
 
 		alert("Error el documento " + pro + " solicitado no esta registrado como Producto");
-		document.getElementById("codigo_producto1").value = "";
+		document.getElementById("codigo_producto").value = "";
 	}
 }
 
