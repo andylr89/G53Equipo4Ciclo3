@@ -240,6 +240,7 @@ function detalle() {
 			xhr2.send(formData2);
 		}
 
+		prod1 = null;
 		var prod2 = document.getElementById("codigo_producto2").value;
 		if (prod2 != null) {
 
@@ -256,6 +257,7 @@ function detalle() {
 			xhr2.send(formData2);
 
 		}
+		prod2 = null;
 		var prod3 = document.getElementById("codigo_producto3").value;
 		if (prod3 != null) {
 
@@ -272,10 +274,8 @@ function detalle() {
 			xhr2.send(formData2);
 
 		}
-
 	}
 }
-
 
 
 
