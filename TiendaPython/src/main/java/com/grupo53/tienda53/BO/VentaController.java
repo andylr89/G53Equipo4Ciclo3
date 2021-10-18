@@ -31,9 +31,9 @@ public class VentaController {
 		return Dao.listaDeVentas();
 	}
 	
-	@GetMapping("/listarconcecutivo")
-	public ArrayList<VentasVO> listaConcecutivo() {
+	@GetMapping("/listarconsecutivo")
+	public ArrayList<VentasVO> listaConsecutivo() {
 		VentasDAO Dao = new VentasDAO();
-		return Dao.listaConcecutivo();
+		return Dao.listaConsecutivo();
 	}
 }

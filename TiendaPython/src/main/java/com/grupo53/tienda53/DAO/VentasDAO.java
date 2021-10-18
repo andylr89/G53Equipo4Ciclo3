@@ -102,7 +102,7 @@ public class VentasDAO {
 		return listaventas;
 	}	
 	
-	public ArrayList<VentasVO> listaConcecutivo() {
+	public ArrayList<VentasVO> listaConsecutivo() {
 		//lista que contendra el o los clientes obtenidos
 		ArrayList<VentasVO> listaconce = new ArrayList<VentasVO>();
 		
@@ -131,13 +131,13 @@ public class VentasDAO {
 		} catch (SQLException e) {
 			//si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo consultar El Concecutivo");
+			System.out.println("No se pudo consultar El Consecutivo");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
 			//si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
-			System.out.println("No se pudo consultar El Concecutivo");
+			System.out.println("No se pudo consultar El Consecutivo");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}
