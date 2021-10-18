@@ -247,7 +247,7 @@
 					<div class="col-md-3">
 						<div class="row align-items-end">
 							<button type="button" class="btn btn-primary"
-								onclick="registrar()">
+								onclick="registrar(),detalle()">
 								<i class="fas fa-dollar-sign"></i> Confirmar
 							</button>
 						</div>
