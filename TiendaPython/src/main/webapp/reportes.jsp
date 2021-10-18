@@ -64,7 +64,7 @@
 	<br>
 	<br>
 
-	<h5>ESCOJA SU OPCIÓN:</h5>
+	<h5> <i class="far fa-hand-pointer"></i> ESCOJA SU OPCIÓN: <i class="far fa-hand-pointer"></i></h5>
 	<div class="container mt-5">
 		<div class="row">
 			<div class="col align-items-start mt-5"></div>
