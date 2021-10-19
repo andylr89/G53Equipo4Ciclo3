@@ -111,8 +111,14 @@ public class VentasDAO {
 
 		try {
 			//prepare la sentencia en la base de datos
+<<<<<<< Updated upstream
 			//PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT AUTO_INCREMENT codigo_venta FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'g53e4' AND TABLE_NAME = 'ventas'");
 			PreparedStatement consulta = conex.getConnection().prepareStatement("select max(codigo_venta) +1 codigo_venta from ventas");
+=======
+			PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT AUTO_INCREMENT codigo_venta FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'g53e4' AND TABLE_NAME = 'ventas'");
+			//PreparedStatement consulta = conex.getConnection().prepareStatement("select max(codigo_venta) +1 codigo_venta from ventas");
+			
+>>>>>>> Stashed changes
 			//ejecute la sentencia
 			ResultSet res = consulta.executeQuery();
 			
